@@ -1,9 +1,14 @@
 import React from 'react';
-import {Text,View} from 'react-native';
+import {Text,View,Image} from 'react-native';
 
 class Profile extends React.Component {
     static navigationOptions = {
-        title: 'Profile',
+        tabBarLabel: 'Profile',
+        tabBarIcon: ({ tintColor }) => (
+            <Image
+                style={{width: 20, height: 20}}
+                source={require('./../../../static/images/icons/man-user.png')}/>
+        )
     };
     render() {
         return (

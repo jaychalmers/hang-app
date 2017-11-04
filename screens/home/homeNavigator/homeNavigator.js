@@ -16,6 +16,7 @@ const HomeNavigator = TabNavigator(
     {
         tabBarPosition: 'bottom',
         tabBarComponent: TabBarBottom,
+        showLabel: false,
         swipeEnabled: false,
         animationEnabled: false,
         backBehaviour: 'none',

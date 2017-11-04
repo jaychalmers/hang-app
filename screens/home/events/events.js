@@ -1,9 +1,14 @@
 import React from 'react';
-import {Text,View} from 'react-native';
+import {Text,View,Image} from 'react-native';
 
 class Events extends React.Component {
     static navigationOptions = {
-        title: 'Events',
+        tabBarLabel: 'Events',
+        tabBarIcon: ({ tintColor }) => (
+            <Image
+                style={{width: 20, height: 20}}
+                source={require('./../../../static/images/icons/calendar2.png')}/>
+        )
     };
     render() {
         return (
