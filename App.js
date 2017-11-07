@@ -2,12 +2,14 @@ import React from 'react';
 import {StackNavigator} from 'react-navigation';
 import {Font} from 'expo';
 
+
 //TODO: Seperate all these into a index files for each screen directory
 import OpenHang from './screens/signupLogin/open-hang/open-hang';
 import Login from './screens/signupLogin/login/login';
 import SignUp from './screens/signupLogin/sign-up/sign-up';
 import HomeNavigator from './screens/home/homeNavigator/homeNavigator';
 import ForgottenPassword from './screens/signupLogin/forgotten-password/forgotten-password';
+import Calendar from './screens/home/calendar/calendar';
 
 const Navigator = StackNavigator(
     {
@@ -26,7 +28,8 @@ const Navigator = StackNavigator(
                     left: null
                 }
             }
-        }
+        },
+        Calendar: { screen: Calendar }
     },
     {
         initialRouteName: 'OpenHang',

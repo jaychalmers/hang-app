@@ -8,6 +8,23 @@ const flexValues = {
     slider: 1
 };
 
+const buttonTextValues = {
+    fontSize: 14,
+    fontFamily: 'Montserrat-Light'
+};
+
+const buttonContainerValues = {
+    width: 75,
+    height: 27,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '6%',
+    borderColor: styleGuide.colorPalette.prussianBlue,
+    borderRadius: 4,
+    borderStyle: 'solid',
+    borderWidth: 2
+};
+
 const styles = StyleSheet.create({
     pageView: {
         flex: 1
@@ -25,11 +42,6 @@ const styles = StyleSheet.create({
         left: 0,
         width: '100%',
         height: '100%'
-        /*
-        backgroundColor: 'red',
-        flexDirection: 'column',
-        justifyContent: 'space-around'
-        */
     },
     listView: {
         position: 'absolute',
@@ -44,10 +56,28 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     logoView: {
-        backgroundColor: 'green',
         flex: flexValues.logo,
-        flexDirection: 'column',
-        justifyContent: 'space-around',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%'
+    },
+    logo: {
+        fontSize: 48,
+        textAlign: "center",
+        color: styleGuide.colorPalette.prussianBlue,
+        fontFamily: 'SignPainter-HouseScript',
+        lineHeight: 64,
+        textShadowColor: 'rgba(0,0,0,0.5)',
+        textShadowOffset: {width: 0, height: 2},
+        textShadowRadius: 4
+    },
+    settingsIcon: {
+        marginLeft: 21,
+        marginRight: 21,
+        width: 25,
+        height: 25,
+        tintColor: styleGuide.colorPalette.prussianBlue
     },
     modeButtonsView: {
         flex: flexValues.modeButtons,
@@ -56,38 +86,20 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     activeButtonContainer: {
-        width: 98,
-        height: 35,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: styleGuide.colorPalette.prussianBlue,
-        margin: 6,
-        borderColor: styleGuide.colorPalette.prussianBlue,
-        borderRadius: 4,
-        borderStyle: 'solid',
-        borderWidth: 2
+        ...buttonContainerValues,
+        backgroundColor: styleGuide.colorPalette.prussianBlue
     },
     activeButtonText: {
-        fontSize: 18,
-        color: styleGuide.colorPalette.white,
-        fontFamily: 'Montserrat-Light'
+        ...buttonTextValues,
+        color: styleGuide.colorPalette.white
     },
     inactiveButtonContainer: {
-        width: 98,
-        height: 35,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'transparent',
-        margin: 6,
-        borderColor: styleGuide.colorPalette.prussianBlue,
-        borderRadius: 4,
-        borderStyle: 'solid',
-        borderWidth: 2
+        ...buttonContainerValues,
+        backgroundColor: 'transparent'
     },
     inactiveButtonText: {
-        fontSize: 18,
-        color: styleGuide.colorPalette.prussianBlue,
-        fontFamily: 'Montserrat-Light'
+        ...buttonTextValues,
+        color: styleGuide.colorPalette.prussianBlue
     },
     spacerView: {
         flex: flexValues.mapSpacer
@@ -98,6 +110,9 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'center'
+    },
+    slider: {
+
     }
 });
 

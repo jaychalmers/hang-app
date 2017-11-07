@@ -1,9 +1,7 @@
 import React from 'react';
-import {Text,View,Image} from 'react-native';
+import {Text,View,Image,Slider,TouchableHighlight} from 'react-native';
 import {styles} from './style';
 import Button from 'react-native-button';
-
-import BackgroundImage from './../../../components/backgroundImage';
 
 class Home extends React.Component {
     static navigationOptions = {
@@ -19,8 +17,6 @@ class Home extends React.Component {
         listOpen: false
     };
 
-    //updates the state when display mode is changed.
-    //arg should be true if switching to list mode, false if map mode
     renderButtons(){
         if (this.state.listOpen) {
             return (
@@ -79,13 +75,19 @@ class Home extends React.Component {
                         </View> : null
                     }
                     <View style={styles.logoView}>
-                        <Text>This will be the logo and top buttons</Text>
+                        <TouchableHighlight onPress={() => this.props.navigation.navigate('Calendar')}>
+                            <Image style={styles.settingsIcon} source={require("./../../../static/images/icons/calendar.png")}/>
+                        </TouchableHighlight>
+                        <Text style={styles.logo}>Hang</Text>
+                        <Image style={styles.settingsIcon} source={require("./../../../static/images/icons/musica-searcher.png")}/>
                     </View>
                     {this.renderButtons()}
                     <View style={styles.spacerView}/>
                     <View style={styles.sliderView}>
                         {this.state.listOpen ?
-                            null : <Text>This will be the distance slider</Text>
+                            null : <Slider
+                                style={styles.slider}
+                            />
                         }
                     </View>
                 </View>
@@ -94,60 +96,5 @@ class Home extends React.Component {
         )
     }
 }
-
-/*
-class Home extends React.Component {
-    static navigationOptions = {
-        title: 'Home',
-    };
-
-    state = {
-        modalVisible: false
-    };
-
-    setModalVisible(visible) {
-        this.setState({modalVisible: visible});
-    }
-
-    render() {
-        return (
-            <View style={styles.pageView}>
-                <View style={styles.mapView}>
-                    <Text>This will be the Map view.</Text>
-                </View>
-                <View style={styles.foregroundView}>
-
-                    <View style={styles.logoView}>
-                        <Text>This will be the logo and top buttons</Text>
-                    </View>
-                    <View style={styles.modeButtonsView}>
-                        <TouchableHighlight onPress={() => {
-                            this.setModalVisible(!this.state.modalVisible)
-                        }}>
-                            <Text>Change Mode</Text>
-                        </TouchableHighlight>
-                    </View>
-                    <View style={styles.spacerView}/>
-                    <View style={styles.sliderView}>
-                        <Text>This will be the distance slider</Text>
-                    </View>
-                    <Modal
-                        style={styles.listView}
-                        animationType="none"
-                        transparent={true}
-                        visible={this.state.modalVisible}
-                        presentationStyle="overFullScreen"
-                    >
-
-                            <Text>This will be the List view.</Text>
-
-                    </Modal>
-                </View>
-
-            </View>
-        )
-    }
-}
- */
 
 export default Home;
