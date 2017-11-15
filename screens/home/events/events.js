@@ -1,13 +1,14 @@
 import React from 'react';
 import {Text,View,Image} from 'react-native';
+import {tabBarIcon} from './../homeNavigator/style';
 
 class Events extends React.Component {
     static navigationOptions = {
         tabBarLabel: 'Events',
-        tabBarIcon: ({ tintColor }) => (
+        tabBarIcon: ({ focused, tintColor }) => (
             <Image
-                style={{width: 20, height: 20}}
-                source={require('./../../../static/images/icons/calendar2.png')}/>
+                style={{tintColor: tintColor,...tabBarIcon}}
+                source={require('./../../../static/images/icons/calendar.png')}/>
         )
     };
     render() {

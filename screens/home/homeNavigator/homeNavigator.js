@@ -16,14 +16,14 @@ const HomeNavigator = TabNavigator(
     {
         tabBarPosition: 'bottom',
         tabBarComponent: TabBarBottom,
-        showLabel: false,
         swipeEnabled: false,
         animationEnabled: false,
         backBehaviour: 'none',
         tabBarOptions: {
             activeTintColor: tabBar.activeTintColor,
             inactiveTintColor: tabBar.inactiveTintColor,
-            style: styles
+            style: styles,
+            showLabel: false
         }
     }
 );

@@ -1,21 +1,37 @@
 import React from 'react';
-import {Text,View,Image,Slider,TouchableHighlight} from 'react-native';
+import {Text,View,Image,Slider,TouchableHighlight,ScrollView,FlatList} from 'react-native';
 import {styles} from './style';
+import {tabBarIcon} from './../homeNavigator/style';
 import Button from 'react-native-button';
+import * as server from './../../../config/server';
+const moment = require('moment');
+import { MapView } from 'expo';
+import * as styleGuide from '../../../config/styleGuide';
+
 
 class Home extends React.Component {
     static navigationOptions = {
         tabBarLabel: 'Home',
-        tabBarIcon: ({ tintColor }) => (
+        tabBarIcon: ({ focused, tintColor }) => (
             <Image
-                style={{width: 20, height: 20}}
+                style={{tintColor: tintColor,...tabBarIcon}}
                 source={require('./../../../static/images/icons/home.png')}/>
         )
     };
 
-    state = {
-        listOpen: false
-    };
+    constructor(props){
+        super(props);
+        this.state = {
+            listOpen: false,
+            awaitingServerResponse: true,
+            events: null,
+            error: null
+        };
+    }
+
+    componentDidMount(){
+        this.getEvents();
+    }
 
     renderButtons(){
         if (this.state.listOpen) {
@@ -55,23 +71,85 @@ class Home extends React.Component {
         }
     }
 
-    render() {
+    renderEventOnList(event){
+        const time = moment(event.time);
+        return (
+            <View style={{height: 88,flex: 1,flexDirection:'row',justifyContent: 'center',alignItems: 'center'}}>
+                <View style={{flex: 1,flexDirection:'column',alignItems:'center',marginRight:12}}>
+                    <Text style={{fontSize:36,fontFamily:'Montserrat-Regular',color:styleGuide.colorPalette.warmGrey}}>{time.format("DD")}</Text>
+                    <Text style={{fontSize:18,fontFamily:'Montserrat-Light',color:'red'}}>{time.format("MMM")}</Text>
+                    <Text style={{fontSize:12,fontFamily:'Montserrat-Regular',color:styleGuide.colorPalette.warmGrey}}>Free</Text>
+                </View>
+                <View style={{flex: 4}}>
+                    <Text style={{fontSize:18,fontFamily: 'Montserrat-Regular'}}>{event.name}</Text>
+                    <Text style={{fontSize:12,fontFamily: 'Montserrat-Light',color:styleGuide.colorPalette.warmGrey}}>Location and Time</Text>
+                    <Text style={{fontSize:12,fontFamily: 'Montserrat-Regular',color:styleGuide.colorPalette.warmGrey}}>10 Going</Text>
+                </View>
+            </View>
+        );
+    }
+
+    renderList(){
+        if (this.state.error) {
+            console.log(this.state.error);
+            return <Text>Error contacting server</Text>
+        } else {
+            const events = this.state.events;
+            return <FlatList
+                data={events}
+                renderItem={({item}) => this.renderEventOnList(item)}
+                keyExtractor={(item, index) => {
+                    return item._id;
+                }}/>
+        }
+    }
+
+    getEvents(options){
+        const address = (server.url + "/event/");
+        const req = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(options)
+        };
+        fetch(address,req)
+            .then((res) => res.json())
+            .then((json) => {
+                this.setState({awaitingServerResponse: false, events: json});
+            }).catch((err) => {
+                this.setState({awaitingServerResponse: false, error: err});
+        });
+    }
+
+    render(){
         return (
             <View style={styles.pageView}>
                 <View style={styles.mapView}>
-                    <Image
-                        source={require('./../../../static/images/background/mapPlaceholder.png')}
-                        style={{
-                            width: null,
-                            height: null,
-                            flex: 1
-                        }}
-                        resizeMode='cover'/>
+
                 </View>
                 <View style={styles.foregroundView}>
+                    <View style={styles.mapView}>
+                        <MapView
+                            style={{
+                                width: null,
+                                height: null,
+                                flex: 1
+                            }}
+                            initialRegion={{
+                                latitude: 50.8214826,
+                                longitude: -0.1373269,
+                                latitudeDelta: 0.05,
+                                longitudeDelta: 0.05
+                            }}/>
+                    </View>
                     {this.state.listOpen ?
                         <View style={styles.listView}>
-                            <Text>This is the list view.</Text>
+                            <View style={styles.listHeadSpacer}/>
+                            <View style={styles.listContentView}>
+                                {!this.state.awaitingServerResponse ? this.renderList() : (<Text>Waiting for response from server</Text>)}
+                            </View>
                         </View> : null
                     }
                     <View style={styles.logoView}>
@@ -91,7 +169,6 @@ class Home extends React.Component {
                         }
                     </View>
                 </View>
-
             </View>
         )
     }

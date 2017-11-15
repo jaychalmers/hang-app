@@ -9,18 +9,18 @@ const flexValues = {
 };
 
 const buttonTextValues = {
-    fontSize: 14,
+    fontSize: 18,
     fontFamily: 'Montserrat-Light'
 };
 
 const buttonContainerValues = {
-    width: 75,
-    height: 27,
+    width: 98,
+    height: 35,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: '6%',
-    borderColor: styleGuide.colorPalette.prussianBlue,
-    borderRadius: 4,
+    margin: '1.5%',
+    borderColor: styleGuide.colorPalette.uglyBlue,
+    borderRadius: 2,
     borderStyle: 'solid',
     borderWidth: 2
 };
@@ -50,17 +50,26 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         backgroundColor: styleGuide.colorPalette.white,
-        opacity: 0.8,
+        opacity: 0.9,
         flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'center'
+    },
+    listHeadSpacer: {
+        flex: 1,
+    },
+    listContentView: {
+        flex: 3,
+        width: '86%',
+        height: '100%'
     },
     logoView: {
         flex: flexValues.logo,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
+        marginTop: '1%'
     },
     logo: {
         fontSize: 48,
@@ -87,7 +96,7 @@ const styles = StyleSheet.create({
     },
     activeButtonContainer: {
         ...buttonContainerValues,
-        backgroundColor: styleGuide.colorPalette.prussianBlue
+        backgroundColor: styleGuide.colorPalette.uglyBlue
     },
     activeButtonText: {
         ...buttonTextValues,
@@ -99,10 +108,11 @@ const styles = StyleSheet.create({
     },
     inactiveButtonText: {
         ...buttonTextValues,
-        color: styleGuide.colorPalette.prussianBlue
+        color: styleGuide.colorPalette.uglyBlue
     },
     spacerView: {
-        flex: flexValues.mapSpacer
+        flex: flexValues.mapSpacer,
+        backgroundColor: 'red'
     },
     sliderView: {
         backgroundColor: 'yellow',

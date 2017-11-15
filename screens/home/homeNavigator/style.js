@@ -1,4 +1,3 @@
-import {StyleSheet} from 'react-native';
 import * as styleGuide from '../../../config/styleGuide';
 
 const tabBar = {
@@ -6,8 +5,13 @@ const tabBar = {
     inactiveTintColor: styleGuide.colorPalette.uglyBlue
 };
 
+const tabBarIcon = {
+    width: 20,
+    height: 20
+};
+
 const styles = {
     backgroundColor: styleGuide.colorPalette.prussianBlue
 };
 
-export {styles,tabBar};
+export {styles,tabBar,tabBarIcon};

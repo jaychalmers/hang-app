@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "20.0.0"
+    "name":"Hang",
+    "orientation":"portrait",
+    "sdkVersion": "21.0.0"
+  },
+  "android": {
+    "package":"com.hang.hang",
+    "config": {
+      "googleMaps": {
+        "apiKey": "AIzaSyCXeYOuOLqHXxVZtBoQOFrs5_LYVXWjx2k"
+      }
+    }
   }
 }

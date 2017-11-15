@@ -32,7 +32,7 @@ const Navigator = StackNavigator(
         Calendar: { screen: Calendar }
     },
     {
-        initialRouteName: 'OpenHang',
+        initialRouteName: 'Home',
         headerMode: 'none',
     }
 );

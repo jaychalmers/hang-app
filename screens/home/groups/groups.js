@@ -1,12 +1,13 @@
 import React from 'react';
 import {Text,View,Image} from 'react-native';
+import {tabBarIcon} from './../homeNavigator/style';
 
 class Groups extends React.Component {
     static navigationOptions = {
         tabBarLabel: 'Groups',
-        tabBarIcon: ({ tintColor }) => (
+        tabBarIcon: ({ focused, tintColor }) => (
             <Image
-                style={{width: 20, height: 20}}
+                style={{tintColor: tintColor,...tabBarIcon}}
                 source={require('./../../../static/images/icons/group-profile-users.png')}/>
         )
     };
