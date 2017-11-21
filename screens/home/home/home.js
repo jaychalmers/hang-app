@@ -7,7 +7,7 @@ import * as server from './../../../config/server';
 const moment = require('moment');
 import { MapView } from 'expo';
 import * as styleGuide from '../../../config/styleGuide';
-
+import HangMap from './../../../components/hangMap';
 
 class Home extends React.Component {
     static navigationOptions = {
@@ -131,18 +131,7 @@ class Home extends React.Component {
                 </View>
                 <View style={styles.foregroundView}>
                     <View style={styles.mapView}>
-                        <MapView
-                            style={{
-                                width: null,
-                                height: null,
-                                flex: 1
-                            }}
-                            initialRegion={{
-                                latitude: 50.8214826,
-                                longitude: -0.1373269,
-                                latitudeDelta: 0.05,
-                                longitudeDelta: 0.05
-                            }}/>
+                        <HangMap events={this.state.events}/>
                     </View>
                     {this.state.listOpen ?
                         <View style={styles.listView}>
