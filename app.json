@@ -2,7 +2,7 @@
   "expo": {
     "name":"Hang",
     "orientation":"portrait",
-    "sdkVersion": "21.0.0"
+    "sdkVersion": "23.0.0"
   },
   "android": {
     "package":"com.hang.hang",

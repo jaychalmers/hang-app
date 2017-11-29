@@ -25,7 +25,9 @@ class Home extends React.Component {
             listOpen: false,
             awaitingServerResponse: true,
             events: null,
-            error: null
+            error: null,
+            selectedEventIndex: null,
+            viewCoordinates: null
         };
     }
 
@@ -123,6 +125,12 @@ class Home extends React.Component {
         });
     }
 
+    selectMarker(event){
+        console.log("Home received event: " + event);
+        console.log("id:: " + event.id);
+        this.setState({selectedEventIndex: parseInt(event.id)});
+    }
+
     render(){
         return (
             <View style={styles.pageView}>
@@ -131,7 +139,11 @@ class Home extends React.Component {
                 </View>
                 <View style={styles.foregroundView}>
                     <View style={styles.mapView}>
-                        <HangMap events={this.state.events}/>
+                        <HangMap
+                            events={this.state.events}
+                            selector={this.selectMarker.bind(this)}
+                            selectedEventIndex={this.state.selectedEventIndex}
+                        />
                     </View>
                     {this.state.listOpen ?
                         <View style={styles.listView}>
