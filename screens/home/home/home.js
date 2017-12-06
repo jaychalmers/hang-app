@@ -1,13 +1,13 @@
 import React from 'react';
-import {Text,View,Image,Slider,TouchableHighlight,ScrollView,FlatList} from 'react-native';
+import {Text,View,Image,Slider,TouchableHighlight,FlatList} from 'react-native';
 import {styles} from './style';
 import {tabBarIcon} from './../homeNavigator/style';
 import Button from 'react-native-button';
 import * as server from './../../../config/server';
 const moment = require('moment');
-import { MapView } from 'expo';
 import * as styleGuide from '../../../config/styleGuide';
 import HangMap from './../../../components/hangMap';
+import MapEventCallout from "../../../components/mapEventCallout/mapEventCallout";
 
 class Home extends React.Component {
     static navigationOptions = {
@@ -125,23 +125,16 @@ class Home extends React.Component {
         });
     }
 
-    selectMarker(event){
-        console.log("Home received event: " + event);
-        console.log("id:: " + event.id);
-        this.setState({selectedEventIndex: parseInt(event.id)});
-    }
-
     render(){
         return (
             <View style={styles.pageView}>
-                <View style={styles.mapView}>
-
-                </View>
                 <View style={styles.foregroundView}>
                     <View style={styles.mapView}>
                         <HangMap
                             events={this.state.events}
-                            selector={this.selectMarker.bind(this)}
+                            selector={(event)=>{
+                                this.setState({selectedEventIndex: event ? parseInt(event.id) : null});
+                            }}
                             selectedEventIndex={this.state.selectedEventIndex}
                         />
                     </View>
@@ -162,13 +155,10 @@ class Home extends React.Component {
                     </View>
                     {this.renderButtons()}
                     <View style={styles.spacerView}/>
-                    <View style={styles.sliderView}>
-                        {this.state.listOpen ?
-                            null : <Slider
-                                style={styles.slider}
-                            />
-                        }
-                    </View>
+                    {this.state.listOpen ?
+                        null : this.state.selectedEventIndex === null ?
+                            <Slider style={styles.slider}/> : <MapEventCallout event={this.state.events[this.state.selectedEventIndex]}/>
+                    }
                 </View>
             </View>
         )
@@ -176,3 +166,13 @@ class Home extends React.Component {
 }
 
 export default Home;
+
+/*
+<View style={styles.sliderView}>
+                        {this.state.listOpen ?
+                            null : this.state.selectedEventIndex === null ?
+                                <Slider style={styles.slider}/> : <MapEventCallout event={this.state.events[this.state.selectedEventIndex]}/>
+                        }
+                    </View>
+
+ */

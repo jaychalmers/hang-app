@@ -4,7 +4,7 @@ import * as styleGuide from '../../../config/styleGuide';
 const flexValues = {
     logo: 1,
     modeButtons: 1,
-    mapSpacer: 5,
+    mapSpacer: 6,
     slider: 1
 };
 
@@ -122,7 +122,18 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     slider: {
-
+        width: 182,
+        height: 27,
+        radius: 4,
+        position: 'absolute',
+        bottom: 56,
+    },
+    eventCallout: {
+        width: 182,
+        height: 27,
+        radius: 4,
+        position: 'absolute',
+        bottom: 56,
     }
 });
 

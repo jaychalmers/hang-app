@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Image,StyleSheet} from 'react-native';
+import {View,Image,StyleSheet,Text} from 'react-native';
 const moment = require('moment');
 import { MapView } from 'expo';
 import * as _ from 'lodash';
@@ -16,7 +16,6 @@ const pinStyle = {
 };
 
 class HangMap extends React.Component {
-
     constructor(props){
         super(props);
         console.log(props);
@@ -34,21 +33,22 @@ class HangMap extends React.Component {
     }
 
     onMarkerPress(e){
-        console.log("Clicked: " + JSON.stringify(e.nativeEvent));
-        //this.selector(e.nativeEvent);
+        this.selector(e.nativeEvent);
         this.setState({selectedEvent: e.nativeEvent.id});
         if(this.map){
+            //TODO: This doesn't work - need to make it so if you're zoomed in further than 0.01, it doesn't zoom out
+            const latDelt = (this.latitudeDelta < 0.01) ? this.latitudeDelta : 0.01;
+            const lonDelt = (this.longitudeDelta < 0.01) ? this.longitudeDelta : 0.01;
             this.map.animateToRegion({
                 latitude: e.nativeEvent.coordinate.latitude,
                 longitude: e.nativeEvent.coordinate.longitude,
-                latitudeDelta: 0.01,
-                longitudeDelta: 0.01
+                latitudeDelta: latDelt,
+                longitudeDelta: lonDelt
             }, 1000);
         }
     }
 
     render(){
-        console.log("Rendering mapview. selectedEvent: " + this.state.selectedEvent);
         return (
             <MapView
                 style={{
@@ -60,12 +60,12 @@ class HangMap extends React.Component {
                 ref={(mapView) => {this.map = mapView; }}
                 showsCompass={false}
                 moveOnMarkerPress={false}
+                onPress={()=>{
+                    this.setState({selectedEvent: null});
+                    this.selector(null);
+                }}
             >
                 {_.map(this.props.events,(event, index) => {
-                    let styles = StyleSheet.create({
-                        marker: {...pinStyle,
-                            tintColor: (this.state.selectedEvent === index) ? styleGuide.colorPalette.reddishPink : styleGuide.colorPalette.uglyBlue}
-                    });
                     return <MapView.Marker
                         title={event.name}
                         description={event.description}
@@ -73,14 +73,10 @@ class HangMap extends React.Component {
                             longitude: event.location[0],
                             latitude: event.location[1]
                         }}
+                        pinColor={(this.state.selectedEvent == index) ? styleGuide.colorPalette.reddishPink : styleGuide.colorPalette.uglyBlue}
                         identifier={index.toString()}
-                        onPress={this.onMarkerPress.bind(this)}>
-                        <View>
-                            <Image
-                                source={pin}
-                                style={styles.marker}
-                            />
-                        </View>
+                        onPress={(event) => {event.stopPropagation(); this.onMarkerPress(event)}}>
+                            <MapView.Callout tooltip={true} />
                     </MapView.Marker>
                 })}
             </MapView>
@@ -89,3 +85,27 @@ class HangMap extends React.Component {
 }
 
 export default HangMap;
+
+//(this.onMarkerPress.bind(this)
+
+/*
+
+let styles = StyleSheet.create({
+                        marker: {...pinStyle,
+                            tintColor: (this.state.selectedEvent == index) ? styleGuide.colorPalette.reddishPink : styleGuide.colorPalette.uglyBlue}
+                    });
+
+--------------
+
+<View>
+                            <Image
+                                // we need the forceUpdate and the random text due to this
+                                // https://github.com/airbnb/react-native-maps/issues/924#issuecomment-280334935
+                                onLoad={() => this.forceUpdate()}
+                                onLayout={() => this.forceUpdate()}
+                                source={pin}
+                                style={styles.marker}
+                            >
+                            </Image>
+                        </View>
+ */
