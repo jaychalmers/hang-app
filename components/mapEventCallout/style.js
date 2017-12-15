@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import * as styleGuide from '../../config/styleGuide';
 
+//TODO: The image goes beyond the bounds of the card view. This doesn't display properly on Android.
 const styles = StyleSheet.create({
     card: {
         backgroundColor: styleGuide.colorPalette.white,
@@ -13,20 +14,26 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         shadowOpacity: 0.5,
         position: 'absolute',
-        bottom: 67
+        bottom: 67,
+        overflow: 'visible',
     },
     cardContent: {
         position: 'relative',
         flex: 1,
         flexDirection: 'row',
     },
-    image: {
+    imageView: {
         height: 80,
         width: 80,
         borderRadius: 40,
         position: 'absolute',
         top: -40,
         right: 123
+    },
+    image: {
+        height: 80,
+        width: 80,
+        borderRadius: 40
     },
     leftSection: {
         position: 'relative',

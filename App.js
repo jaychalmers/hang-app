@@ -10,6 +10,7 @@ import SignUp from './screens/signupLogin/sign-up/sign-up';
 import HomeNavigator from './screens/home/homeNavigator/homeNavigator';
 import ForgottenPassword from './screens/signupLogin/forgotten-password/forgotten-password';
 import Calendar from './screens/home/calendar/calendar';
+import Event from './screens/event/event/event'
 
 const Navigator = StackNavigator(
     {
@@ -29,7 +30,9 @@ const Navigator = StackNavigator(
                 }
             }
         },
-        Calendar: { screen: Calendar }
+        Calendar: { screen: Calendar },
+        //event view
+        Event: { screen: Event }
     },
     {
         initialRouteName: 'Home',

@@ -4,7 +4,9 @@ import {styles} from './style';
 import {tabBarIcon} from './../homeNavigator/style';
 import Button from 'react-native-button';
 import * as server from './../../../config/server';
+import * as google from './../../../config/google';
 const moment = require('moment');
+import * as _ from 'lodash';
 import * as styleGuide from '../../../config/styleGuide';
 import HangMap from './../../../components/hangMap';
 import MapEventCallout from "../../../components/mapEventCallout/mapEventCallout";
@@ -74,20 +76,38 @@ class Home extends React.Component {
     }
 
     renderEventOnList(event){
-        const time = moment(event.time);
+        const {navigate} = this.props.navigation;
+        const time = moment(event.startTime);
+        const location = event.googlePlace.result.name + ", " + _.find(event.googlePlace.result.address_components,(component)=>{
+            return _.includes(component.types,"postal_town");
+        }).long_name;
         return (
-            <View style={{height: 88,flex: 1,flexDirection:'row',justifyContent: 'center',alignItems: 'center'}}>
-                <View style={{flex: 1,flexDirection:'column',alignItems:'center',marginRight:12}}>
-                    <Text style={{fontSize:36,fontFamily:'Montserrat-Regular',color:styleGuide.colorPalette.warmGrey}}>{time.format("DD")}</Text>
-                    <Text style={{fontSize:18,fontFamily:'Montserrat-Light',color:'red'}}>{time.format("MMM")}</Text>
-                    <Text style={{fontSize:12,fontFamily:'Montserrat-Regular',color:styleGuide.colorPalette.warmGrey}}>Free</Text>
+            <TouchableHighlight onPress={()=>navigate('Event',{event: event})}>
+                <View>
+                    <View style={{height: 88,flex: 1,flexDirection:'row',justifyContent: 'center',alignItems: 'center'}}>
+                        <View style={{flex: 1,flexDirection:'column',alignItems:'center',marginRight:12}}>
+                            <Text style={{fontSize:36,fontFamily:'Montserrat-Regular',color:styleGuide.colorPalette.warmGrey}}>{time.format("DD")}</Text>
+                            <Text style={{fontSize:18,fontFamily:'Montserrat-Light',color:'red'}}>{time.format("MMM")}</Text>
+                            <Text style={{fontSize:12,fontFamily:'Montserrat-Regular',color:styleGuide.colorPalette.warmGrey}}>Free</Text>
+                        </View>
+                        <View style={{flex: 4, flexDirection: 'column',justifyContent: 'space-around'}}>
+                            <View style={{flex: 5,justifyContent: 'flex-end'}}>
+                                <Text style={{fontSize:18,fontFamily: 'Montserrat-Regular'}}>{event.name}</Text>
+                            </View>
+                            <View style={{flex: 3, flexDirection: 'row', alignItems: 'center'}}>
+                                <Image style={{width: 9, height: 9, tintColor: styleGuide.colorPalette.warmGrey, opacity: 0.5}} source={require('./../../../static/images/icons/pin.png')}/>
+                                <Text style={{fontSize:12,fontFamily: 'Montserrat-Light',color:styleGuide.colorPalette.warmGrey,marginLeft: 2}}>{location}</Text>
+                                <Image style={{width: 9, height: 9, tintColor: styleGuide.colorPalette.warmGrey, opacity: 0.5,marginLeft: 14}} source={require('./../../../static/images/icons/clock.png')}/>
+                                <Text style={{fontSize:12,fontFamily: 'Montserrat-Light',color:styleGuide.colorPalette.warmGrey,marginLeft: 2}}>{time.format("h:mm a")}</Text>
+                            </View>
+                            <View style={{flex: 5}}>
+                                <Text style={{fontSize:12,fontFamily: 'Montserrat-Regular',color:styleGuide.colorPalette.warmGrey}}>10 Going</Text>
+                            </View>
+                        </View>
+                    </View>
+                    <View style={{height: 1, width: '88%',backgroundColor: styleGuide.colorPalette.whiteTwo, opacity: 0.5}}/>
                 </View>
-                <View style={{flex: 4}}>
-                    <Text style={{fontSize:18,fontFamily: 'Montserrat-Regular'}}>{event.name}</Text>
-                    <Text style={{fontSize:12,fontFamily: 'Montserrat-Light',color:styleGuide.colorPalette.warmGrey}}>Location and Time</Text>
-                    <Text style={{fontSize:12,fontFamily: 'Montserrat-Regular',color:styleGuide.colorPalette.warmGrey}}>10 Going</Text>
-                </View>
-            </View>
+            </TouchableHighlight>
         );
     }
 

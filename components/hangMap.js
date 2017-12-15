@@ -15,18 +15,21 @@ const pinStyle = {
     shadowRadius: 0
 };
 
+const Brighton = {
+    latitude: 50.8214826,
+    longitude: -0.1373269,
+    latitudeDelta: 0.05,
+    longitudeDelta: 0.05
+};
+const InitialRegion = Brighton;
+
 class HangMap extends React.Component {
     constructor(props){
         super(props);
         console.log(props);
         this.selector = props.selector;
         this.state = {
-            view: {
-                latitude: 50.8214826,
-                longitude: -0.1373269,
-                latitudeDelta: 0.05,
-                longitudeDelta: 0.05
-            },
+            view: null,
             selectedEvent: null,
         };
         this.map = null;
@@ -56,7 +59,7 @@ class HangMap extends React.Component {
                     height: null,
                     flex: 1
                 }}
-                initialRegion={this.state.view}
+                initialRegion={InitialRegion}
                 ref={(mapView) => {this.map = mapView; }}
                 showsCompass={false}
                 moveOnMarkerPress={false}
@@ -64,11 +67,11 @@ class HangMap extends React.Component {
                     this.setState({selectedEvent: null});
                     this.selector(null);
                 }}
+                onLayout={() => this.map.animateToRegion(InitialRegion,1000)}
             >
                 {_.map(this.props.events,(event, index) => {
                     return <MapView.Marker
                         title={event.name}
-                        description={event.description}
                         coordinate={{
                             longitude: event.location[0],
                             latitude: event.location[1]
@@ -76,7 +79,11 @@ class HangMap extends React.Component {
                         pinColor={(this.state.selectedEvent == index) ? styleGuide.colorPalette.reddishPink : styleGuide.colorPalette.uglyBlue}
                         identifier={index.toString()}
                         onPress={(event) => {event.stopPropagation(); this.onMarkerPress(event)}}>
-                            <MapView.Callout tooltip={true} />
+                            <MapView.Callout tooltip={true}>
+                                <View>
+                                    <Text/>
+                                </View>
+                            </MapView.Callout>
                     </MapView.Marker>
                 })}
             </MapView>
@@ -85,27 +92,3 @@ class HangMap extends React.Component {
 }
 
 export default HangMap;
-
-//(this.onMarkerPress.bind(this)
-
-/*
-
-let styles = StyleSheet.create({
-                        marker: {...pinStyle,
-                            tintColor: (this.state.selectedEvent == index) ? styleGuide.colorPalette.reddishPink : styleGuide.colorPalette.uglyBlue}
-                    });
-
---------------
-
-<View>
-                            <Image
-                                // we need the forceUpdate and the random text due to this
-                                // https://github.com/airbnb/react-native-maps/issues/924#issuecomment-280334935
-                                onLoad={() => this.forceUpdate()}
-                                onLayout={() => this.forceUpdate()}
-                                source={pin}
-                                style={styles.marker}
-                            >
-                            </Image>
-                        </View>
- */
