@@ -1,8 +1,8 @@
 import * as styleGuide from '../../../config/styleGuide';
 
 const tabBar = {
-    activeTintColor: styleGuide.colorPalette.reddishPink,
-    inactiveTintColor: styleGuide.colorPalette.whiteTwo,
+    activeTintColor: styleGuide.colorPalette.white,
+    inactiveTintColor: styleGuide.colorPalette.uglyBlue,
     indicatorStyle: {
         width: 0,
         height: 0
@@ -15,10 +15,8 @@ const tabBarIcon = {
 };
 
 const styles = {
-    backgroundColor: styleGuide.colorPalette.white,
-    height: 55,
-    borderBottomColor: styleGuide.colorPalette.whiteTwo,
-    borderBottomWidth: 1
+    backgroundColor: styleGuide.colorPalette.prussianBlue,
+    height: 55
 };
 
 export {styles,tabBar,tabBarIcon};

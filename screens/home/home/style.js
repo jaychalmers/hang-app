@@ -124,17 +124,9 @@ const styles = StyleSheet.create({
     slider: {
         width: 182,
         height: 27,
-        radius: 4,
         position: 'absolute',
         bottom: 56,
     },
-    eventCallout: {
-        width: 182,
-        height: 27,
-        radius: 4,
-        position: 'absolute',
-        bottom: 56,
-    }
 });
 
 export {styles};

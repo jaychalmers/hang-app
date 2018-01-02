@@ -11,7 +11,7 @@ class Description extends React.Component {
         tabBarIcon: ({ focused, tintColor }) => (
             <Image
                 style={{tintColor: tintColor,...tabBarIcon}}
-                source={require('./../../../static/images/icons/info.png')}/>
+                source={require('./../../../static/images/icons/list.png')}/>
         )
     };
 
@@ -24,14 +24,16 @@ class Description extends React.Component {
 
     render(){
         const event = this.props.navigation.state.params.event;
-        const location = _.truncate(event.googlePlace.result.formatted_address,{length: 36,omission:"... (view map)"});
+        const eventStartTime = event.schedule[0].startTime;
+        const eventEndTime = _.last(event.schedule).endTime;
+        const location = _.truncate(event.schedule[0].googlePlace.result.formatted_address,{length: 36,omission:"... (view map)"});
         return (
             <View style={styles.pageView}>
                 <View style={styles.detailsView}>
                     <View style={styles.detailsLeft}>
-                        <Text style={styles.dateDay}>{moment(event.startTime).format("DD")}</Text>
-                        <Text style={styles.dateMonth}>{moment(event.startTime).format("MMM")}</Text>
-                        <Text style={styles.dateDayOfWeek}>{moment(event.startTime).format("ddd")}</Text>
+                        <Text style={styles.dateDay}>{moment(eventStartTime).format("DD")}</Text>
+                        <Text style={styles.dateMonth}>{moment(eventStartTime).format("MMM")}</Text>
+                        <Text style={styles.dateDayOfWeek}>{moment(eventStartTime).format("ddd")}</Text>
                     </View>
                     <View style={styles.detailsRight}>
                         <View style={styles.detailsRightLine}>
@@ -40,7 +42,7 @@ class Description extends React.Component {
                         </View>
                         <View style={styles.detailsRightLine}>
                             <Image style={styles.detailsRightIcon} source={require('./../../../static/images/icons/clock.png')}/>
-                            <Text style={styles.detailsText}>{moment(event.startTime).format("HH:mm") + " - " + moment(event.endTime).format("HH:mm")}</Text>
+                            <Text style={styles.detailsText}>{moment(eventStartTime).format("HH:mm") + " - " + moment(eventEndTime).format("HH:mm")}</Text>
                         </View>
                     </View>
                 </View>

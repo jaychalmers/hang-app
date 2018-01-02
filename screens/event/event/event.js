@@ -1,7 +1,10 @@
 import React from 'react';
 import {Text,View,Image} from 'react-native';
+import Header from './../../../components/event/header/header';
+import Footer from './../../../components/event/footer/footer';
 import {styles} from './style';
 import EventTabNavigator from './../eventTabNavigator/eventTabNavigator';
+import * as _ from 'lodash';
 
 class Event extends React.Component {
 
@@ -17,25 +20,17 @@ class Event extends React.Component {
 
     render(){
         const event = this.props.navigation.state.params.event;
+        const navigation = this.props.navigation;
         return (
             <View style={styles.pageView}>
                 <View style={styles.headerView}>
-                    <View style={styles.bgImageContainer}>
-                        <Image
-                            style={styles.bgImage}
-                            source={require('./../../../static/images/background/eventPlaceholder.png')}
-                            resizeMode= 'cover'
-                        />
-                        <View style={styles.overlay}/>
-                    </View>
-                    <Text style={styles.headerEventName}>{event.name}</Text>
-                    <View style={styles.attendance}></View>
+                    <Header event={event} navigation={navigation}/>
                 </View>
                 <View style={styles.tabsView}>
-                    <EventTabNavigator navigation={this.props.navigation}/>
+                    <EventTabNavigator navigation={navigation}/>
                 </View>
                 <View style={styles.footerView}>
-                    <Text>footer here</Text>
+                    <Footer/>
                 </View>
             </View>
         )

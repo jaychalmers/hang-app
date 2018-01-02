@@ -4,11 +4,11 @@ import {tabBarIcon} from './../homeNavigator/style';
 
 class Events extends React.Component {
     static navigationOptions = {
-        tabBarLabel: 'Events',
+        tabBarLabel: 'Groups',
         tabBarIcon: ({ focused, tintColor }) => (
             <Image
                 style={{tintColor: tintColor,...tabBarIcon}}
-                source={require('./../../../static/images/icons/calendar.png')}/>
+                source={require('./../../../static/images/icons/calendar2.png')}/>
         )
     };
     render() {
@@ -21,7 +21,7 @@ class Events extends React.Component {
                     alignItems: 'center',
                 }}
             >
-                <Text>This is an Events component</Text>
+                <Text>This is a Events component</Text>
             </View>
         )
     }

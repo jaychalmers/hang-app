@@ -1,15 +1,14 @@
 import React from 'react';
-import {Text,View,Image,Slider,TouchableHighlight,FlatList} from 'react-native';
+import {Text,View,Image,Slider,TouchableHighlight,FlatList,Alert} from 'react-native';
 import {styles} from './style';
 import {tabBarIcon} from './../homeNavigator/style';
 import Button from 'react-native-button';
 import * as server from './../../../config/server';
-import * as google from './../../../config/google';
-const moment = require('moment');
 import * as _ from 'lodash';
 import * as styleGuide from '../../../config/styleGuide';
 import HangMap from './../../../components/hangMap';
 import MapEventCallout from "../../../components/mapEventCallout/mapEventCallout";
+const moment = require('moment');
 
 class Home extends React.Component {
     static navigationOptions = {
@@ -77,8 +76,8 @@ class Home extends React.Component {
 
     renderEventOnList(event){
         const {navigate} = this.props.navigation;
-        const time = moment(event.startTime);
-        const location = event.googlePlace.result.name + ", " + _.find(event.googlePlace.result.address_components,(component)=>{
+        const time = moment(event.schedule[0].startTime);
+        const location = event.schedule[0].googlePlace.result.name + ", " + _.find(event.schedule[0].googlePlace.result.address_components,(component)=>{
             return _.includes(component.types,"postal_town");
         }).long_name;
         return (
@@ -112,6 +111,7 @@ class Home extends React.Component {
     }
 
     renderList(){
+        //TODO: Render in chronological order.
         if (this.state.error) {
             console.log(this.state.error);
             return <Text>Error contacting server</Text>
@@ -122,9 +122,30 @@ class Home extends React.Component {
                 renderItem={({item}) => this.renderEventOnList(item)}
                 keyExtractor={(item, index) => {
                     return item._id;
-                }}/>
+                }}
+                showsVerticalScrollIndicator={false}
+            />
         }
     }
+
+    timeout(ms, promise){
+        return new Promise(function(resolve,reject) {
+            setTimeout(function() {
+                reject(new Error("timeout"))
+            }, ms)
+        });
+        promise.then(resolve, reject);
+    }
+
+    fetchWrapper(url, options, timeout) {
+        return new Promise((resolve, reject) => {
+            fetch(url, options).then(resolve).catch(reject);
+            if (timeout) {
+                const e = new Error("Connection timed out");
+                setTimeout(reject, timeout, e);
+            }
+        });
+    };
 
     getEvents(options){
         const address = (server.url + "/event/");
@@ -136,13 +157,35 @@ class Home extends React.Component {
             },
             body: JSON.stringify(options)
         };
+        this.fetchWrapper(address,req,5000)
+            .then((res) => res.json())
+            .then((json) => {
+                this.setState({awaitingServerResponse: false, events: json});
+            }).catch((err) => {
+                this.loadExampleEvents();
+            });
+        /*
         fetch(address,req)
             .then((res) => res.json())
             .then((json) => {
                 this.setState({awaitingServerResponse: false, events: json});
             }).catch((err) => {
-                this.setState({awaitingServerResponse: false, error: err});
-        });
+                //this.setState({awaitingServerResponse: false, error: err});
+                //TODO: Switch this back for production
+                this.loadExampleEvents();
+        });*/
+    }
+
+    loadExampleEvents(){
+        this.setState({events: require('./../../../static/exampleEvents.json'),awaitingServerResponse: false});
+        Alert.alert(
+            "Server Error",
+            "Failed to contact the server. Loading example events.",
+            [
+                {text: "No problemo my dude", onPress: () => {}}
+            ],
+            { cancelable: false }
+        )
     }
 
     render(){
@@ -177,7 +220,7 @@ class Home extends React.Component {
                     <View style={styles.spacerView}/>
                     {this.state.listOpen ?
                         null : this.state.selectedEventIndex === null ?
-                            <Slider style={styles.slider}/> : <MapEventCallout event={this.state.events[this.state.selectedEventIndex]}/>
+                            <Slider style={styles.slider}/> : <MapEventCallout event={this.state.events[this.state.selectedEventIndex]} navigation={this.props.navigation}/>
                     }
                 </View>
             </View>
@@ -186,13 +229,3 @@ class Home extends React.Component {
 }
 
 export default Home;
-
-/*
-<View style={styles.sliderView}>
-                        {this.state.listOpen ?
-                            null : this.state.selectedEventIndex === null ?
-                                <Slider style={styles.slider}/> : <MapEventCallout event={this.state.events[this.state.selectedEventIndex]}/>
-                        }
-                    </View>
-
- */

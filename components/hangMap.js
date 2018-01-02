@@ -71,10 +71,11 @@ class HangMap extends React.Component {
             >
                 {_.map(this.props.events,(event, index) => {
                     return <MapView.Marker
+                        key={event._id}
                         title={event.name}
                         coordinate={{
-                            longitude: event.location[0],
-                            latitude: event.location[1]
+                            longitude: event.schedule[0].googlePlace.result.geometry.location.lng,
+                            latitude: event.schedule[0].googlePlace.result.geometry.location.lat
                         }}
                         pinColor={(this.state.selectedEvent == index) ? styleGuide.colorPalette.reddishPink : styleGuide.colorPalette.uglyBlue}
                         identifier={index.toString()}
