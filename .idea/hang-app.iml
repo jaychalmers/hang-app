@@ -3,6 +3,13 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/screens" />
+      <excludeFolder url="file://$MODULE_DIR$/screens/home/home" />
+      <excludeFolder url="file://$MODULE_DIR$/screens/home/homeNavigator" />
+      <excludeFolder url="file://$MODULE_DIR$/screens/signupLogin" />
+      <excludeFolder url="file://$MODULE_DIR$/screens/signupLogin/login" />
+      <excludeFolder url="file://$MODULE_DIR$/screens/signupLogin/open-hang" />
+      <excludeFolder url="file://$MODULE_DIR$/screens/signupLogin/sign-up" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
     </content>

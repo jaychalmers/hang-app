@@ -6,6 +6,17 @@ const keys = [
     `${STORE}token`,
 ];
 
+export const saveLocalUser = (details) => {
+    //TODO: THIS CAUSES A CRASH IN EXPO ATM
+    console.log("saveLocalUser received: " + JSON.stringify(details));
+    return AsyncStorage.multiSet([
+        [`${STORE}id`,details._id],
+        [`${STORE}token`,details.token]
+    ],(error) => {
+        throw new Error(error);
+    });
+};
+
 export const loadLocalUser = () => {
     AsyncStorage.multiGet(keys,(error,res) => {
         //TODO: Better error behaviour

@@ -27,7 +27,11 @@ const buttonContainerValues = {
 
 const styles = StyleSheet.create({
     pageView: {
-        flex: 1
+        flex: 1,
+        backgroundColor: 'transparent',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        alignItems: 'center'
     },
     foregroundView: {
         flex: 1,

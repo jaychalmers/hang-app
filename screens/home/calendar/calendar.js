@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text,View} from 'react-native';
 import {styles} from './style';
-import BackgroundImage from '../../../components/backgroundImage';
+import BackgroundImage from '../../signupLogin/components/backgroundImage';
 import Button from 'react-native-button';
 import {NavigationActions} from 'react-navigation';
 

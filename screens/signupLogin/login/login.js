@@ -1,11 +1,15 @@
 import React from 'react';
-import {Text,View} from 'react-native';
+import {Facebook,Google} from 'expo';
+import {Text,View,AsyncStorage,Alert,ActivityIndicator} from 'react-native';
 import Button from 'react-native-button';
-import BackgroundImage from '../../../components/backgroundImage';
+import BackgroundImage from '../components/backgroundImage';
 import {TextField} from 'react-native-material-textfield';
 import {styles,textBoxStyles} from './style';
 
 import * as server from './../../../config/server';
+import * as facebookConfig from './../../../config/facebook';
+import * as googleConfig from './../../../config/google';
+import {STORE} from "../../../config/constants";
 
 class Login extends React.Component {
     static navigationOptions = {
@@ -17,46 +21,98 @@ class Login extends React.Component {
         password: ''
     };
 
-    async makeLoginRequest(email,password){
-        const address = (server.url + "/passport/login");
+    _onLoginPress = name => {
+        if (name === 'facebook') {
+            this._loginWithFacebook();
+        } else {
+            this._loginWithGoogle();
+        }
+    };
+
+    async login(args) {
+        try {
+            const {data} = await axios.post(`/users/auth0`, args);
+            return data;
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    async _loginWithFacebook() {
+        const { type, token } = await Facebook.logInWithReadPermissionsAsync(facebookConfig.app_id, {
+            permissions: ['public_profile', 'email'],
+        });
+        if (type === 'success'){
+            //something
+        }
+    }
+
+    async _loginWithGoogle() {
+        try {
+            const result = await Google.logInAsync({
+                iosClientId: googleConfig.client_id_ios,
+                scopes: ['profile','email'],
+            });
+            if (result.type === 'success') {
+                //something
+            } else {
+                return { cancelled: true};
+            }
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    async makeLoginRequest() {
+        const address = (server.url + "/auth/login");
         const request = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                email: email,
-                password: password
+                email: this.state.email,
+                password: this.state.password
             })
         };
-        try {
-            console.log("Making fetch at " + address);
-            console.log("Using request: " + JSON.stringify(request));
-            const response = await fetch(address,request);
-            console.log("Responded with: " + response);
-        } catch (error) {
-            console.error(error);
-            console.log("There was an error baby");
-            return false;
-        }
-        //if response is good???
-        console.log("Response was good?");
-        return true;
+        return fetch(address,request)
+            .then((res) => res.json())
+            .then((json) => {
+                if (json.error) {
+                    throw new Error(`The server encounted a problem with your request: ${json.error}`);
+                } else {
+                    //success
+                    return json;
+                }
+            }).catch((error) => {
+                throw new Error(`There was a problem making the http request: ${error.message}`);
+            });
     };
 
-    pressLoginButton(navigate){
-        //TODO: This should be async
-        //const result = this.makeLoginRequest(this.state.email,this.state.password);
-
-        //disabled the above for testing
-        const result = true;
-        if (result) {
-            navigate('Home');
+    async pressLoginButton (navigate){
+        if (!this.state.email || !this.state.password){
+            return Alert.alert('Missing Field','Please complete all fields',[{text: 'OK', onPress:()=>{}}]);
         } else {
-            console.log("Bad response");
+            try {
+                this.setState({awaitingServerResponse: true});
+                const response = await this.makeLoginRequest();
+                await this.storeDetails(response);
+                navigate("Controller");
+            } catch (e) {
+                Alert.alert('Error',e.message,[{text: 'OK', onPress: ()=>{}}]);
+                this.setState({awaitingServerResponse: false});
+            }
         }
     }
 
+    async storeDetails (details) {
+        return AsyncStorage.multiSet([
+            [`${STORE}user`,details._id],
+            [`${STORE}token`,details.token]
+        ],(error) => {
+            if (error) console.err("Error storing details: " + error);
+        });
+    };
 
     render() {
         let { email,password } = this.state;
@@ -77,6 +133,7 @@ class Login extends React.Component {
                             keyboardType="email-address"
                             value={email}
                             onChangeText={(email) => this.setState({email})}
+                            disabled={this.state.awaitingServerResponse}
                         />
                         <TextField
                             tintColor={textBoxStyles.tintColor}
@@ -87,17 +144,21 @@ class Login extends React.Component {
                             secureTextEntry={true}
                             email={password}
                             onChangeText={(password) => this.setState({password})}
+                            disabled={this.state.awaitingServerResponse}
                         />
                     </View>
                     <View style={styles.loginButtonView}>
-                        <Button
-                            containerStyle={styles.loginButtonContainer}
-                            style={styles.loginButtonText}
-                            onPress={() => {
-                                this.pressLoginButton(navigate);
-                            }}>
-                            Login
-                        </Button>
+                        {this.state.awaitingServerResponse ?
+                            <ActivityIndicator color="white"/> :
+                            <Button
+                                containerStyle={styles.loginButtonContainer}
+                                style={styles.loginButtonText}
+                                onPress={() => {
+                                    this.pressLoginButton(navigate);
+                                }}>
+                                Login
+                            </Button>
+                        }
                     </View>
                     <View style={styles.orView}>
                         <Text style={styles.or}>or</Text>
@@ -111,7 +172,6 @@ class Login extends React.Component {
                         </Button>
                         <Button
                             onPress={() => {}}
-                            containerStyle={styles.googleButtonContainer}
                             style={styles.socialButtonText}>
                             Connect with Google
                         </Button>

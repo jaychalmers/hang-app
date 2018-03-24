@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text,View} from 'react-native';
 import Button from 'react-native-button';
-import BackgroundImage from './../../../components/backgroundImage';
+import BackgroundImage from '../components/backgroundImage';
 import {styles} from './style';
 
 class OpenHang extends React.Component {

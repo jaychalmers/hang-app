@@ -4,15 +4,12 @@ import styleGuide from "./../../../../config/styles";
 
 export default class extends React.Component {
     render(){
-        const {location} = this.props;
+        const {schedule} = this.props;
         return (
             <View style={styles.componentView}>
-                <Text style={styles.label}>Location</Text>
+                <Text style={styles.label}>Schedule</Text>
                 <View style={styles.textInputBox}>
-                    {location ?
-                        <Text style={styles.inputTextCompleted}>{location}</Text> :
-                        <Text style={styles.inputTextPlaceholder}>Choose your location</Text>
-                    }
+                    <Text style={styles.inputTextPlaceholder}>Add a Schedule (Optional)</Text>
                     <Image
                         style={styles.icon}
                         source={require('./../../../../../static/images/icons/down-arrow-inside-circle.png')}

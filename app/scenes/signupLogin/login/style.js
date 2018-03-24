@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import * as styleGuide from '../../../config/styleGuide';
+import styleGuide from './../../../config/styles';
 
 const flexValues = {
     logo: 2,

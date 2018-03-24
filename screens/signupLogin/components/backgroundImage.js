@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import * as styleGuide from './../config/styleGuide';
+import * as styleGuide from '../../../config/styleGuide';
 
 const styles = StyleSheet.create({
     //TODO: See if this can be improved

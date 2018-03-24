@@ -3,6 +3,9 @@ import {Text,View,Image,TouchableHighlight} from 'react-native';
 import {tabBarIcon} from './../homeNavigator/style';
 import {styles} from './style';
 import Button from 'react-native-button';
+import GroupGrid from '../components/groups/groupGrid/groupGrid';
+import GroupList from '../components/groups/groupList/groupList';
+import * as server from './../../../config/server';
 
 class Groups extends React.Component {
     static navigationOptions = {
@@ -18,8 +21,34 @@ class Groups extends React.Component {
         super(props);
         this.state = {
             gridView: true,
-            discoverView: true
+            discoverView: true,
+            awaitingServerResponse: true,
+            groups: null,
+            error: null
         };
+    }
+
+    componentDidMount(){
+        this.getGroups();
+    }
+
+    getGroups(options){
+        const address = (server.url + "/group/");
+        const req = {
+            method: 'POST',
+            header: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(options)
+        };
+        fetch(address,req)
+            .then((res) => res.json())
+            .then((json) => {
+                this.setState({awaitingServerResponse: false, groups: json});
+            }).catch((err) => {
+            this.setState({awaitingServerResponse: false, error: err});
+        });
     }
 
     renderButtonStrip(){
@@ -74,19 +103,26 @@ class Groups extends React.Component {
         }
     }
 
+    renderContent(){
+        if (this.state.gridView){
+            return (<GroupGrid discoverView={this.state.discoverView} groups={this.state.groups}/>);
+        } else {
+            return (<GroupList discoverView={this.state.discoverView} groups={this.state.groups}/>)
+        }
+    }
 
     render() {
         return (
             <View style={styles.pageView}>
                 <View style={styles.logoView}>
-                    <Text style={styles.logo}>
-                        Groups
-                    </Text>
+                    <Text style={styles.logo}>Groups</Text>
                 </View>
                 {this.renderButtonStrip()}
                 <View style={styles.contentView}>
-                    <Text>{this.state.gridView ? "Grid View" : "List View"}</Text>
-                    <Text>{this.state.discoverView ? "Discover View" : "Joined View"}</Text>
+                    {this.state.awaitingServerResponse ?
+                        <Text>Awaiting Server Response.</Text> : this.state.error ?
+                            <Text>Error loading groups</Text> : this.renderContent()
+                    }
                 </View>
             </View>
         )

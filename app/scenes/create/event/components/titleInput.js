@@ -1,22 +1,22 @@
 import React from 'react';
-import {View,Text,Image,StyleSheet} from 'react-native';
-import styleGuide from "../../../../config/styles";
+import {View,Text,StyleSheet,TextInput} from 'react-native';
+import styleGuide from "./../../../../config/styles";
 
 export default class extends React.Component {
     render(){
-        const {group} = this.props;
+        const {title,updateTitle} = this.props;
         return (
-            <View style={styles.groupLinker}>
-                <Text style={styles.label}>Group</Text>
+            <View style={styles.componentView}>
+                <Text style={styles.label}>Title</Text>
                 <View style={styles.textInputBox}>
-                    {group ?
-                        <Text style={styles.inputTextCompleted}>{group}</Text> :
-                        <Text style={styles.inputTextPlaceholder}>Link this event to a group</Text>
-                    }
-                    <Image
-                        style={styles.icon}
-                        source={require('./../../../../../static/images/icons/down-arrow-inside-circle.png')}
+                    <TextInput
+                        style={title ? styles.inputTextCompleted : styles.inputTextPlaceholder}
+                        onChangeText={updateTitle}
+                        placeholder={"Event Name (E.g. After work lazer tag….)"}
+                        maxLength={70}
+                        underlineColorAndroid={'transparent'}
                     />
+                    <Text style={styles.characterCount}>{title ? title.length : 0}/70</Text>
                 </View>
             </View>
         );
@@ -24,7 +24,7 @@ export default class extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    groupLinker: {
+    componentView: {
         flexDirection: 'column',
         marginBottom: 22
     },
@@ -57,9 +57,9 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: 'rgb(155,155,155)'
     },
-    icon: {
-        width: 20,
-        height: 20,
-        tintColor: styleGuide.colorPalette.whiteTwo
+    characterCount: {
+        fontFamily: 'Montserrat-Regular',
+        fontSize: 10,
+        color: styleGuide.colorPalette.whiteTwo
     }
 });

@@ -1,5 +1,6 @@
 import React from 'react';
-import {Text,View,Image} from 'react-native';
+import {View,Button,Image,AsyncStorage} from 'react-native';
+import {Util} from 'expo';
 import {tabBarIcon} from './../homeNavigator/style';
 
 class Profile extends React.Component {
@@ -11,7 +12,15 @@ class Profile extends React.Component {
                 source={require('./../../../static/images/icons/man-user.png')}/>
         )
     };
+
+    logout () {
+        AsyncStorage.multiRemove(["@HangStore:user","@HangStore:token"],(error)=>{
+            Util.reload();
+        });
+    }
+
     render() {
+        const navigator = this.props.navigation;
         return (
             <View
                 style={{
@@ -21,7 +30,10 @@ class Profile extends React.Component {
                     alignItems: 'center',
                 }}
             >
-                <Text>This is a Profile component</Text>
+                <Button
+                    onPress={this.logout}
+                    title="Logout"
+                />
             </View>
         )
     }

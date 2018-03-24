@@ -2,32 +2,104 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27caadee-3853-432b-bf72-123427dd5930" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/components/home/groups/groupGrid/groupGrid.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/components/mapEventCallout/attendanceButton/attendanceButton.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/components/mapEventCallout/attendanceButton/style.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/scenes/home/common/components/modeButton/modeButton.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/scenes/home/events/components/index.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/scenes/home/events/components/listView/listItem.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/scenes/home/events/components/listView/listView.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/scenes/home/events/components/listView/statusButton.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/scenes/home/profile/components/index.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/scenes/home/profile/components/settingsItem.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/hang-app.iml" afterPath="$PROJECT_DIR$/.idea/hang-app.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/components/event/footer/footer.js" afterPath="$PROJECT_DIR$/components/event/footer/footer.js" />
-      <change beforePath="$PROJECT_DIR$/components/event/footer/style.js" afterPath="$PROJECT_DIR$/components/event/footer/style.js" />
-      <change beforePath="$PROJECT_DIR$/components/event/header/header.js" afterPath="$PROJECT_DIR$/components/event/header/header.js" />
-      <change beforePath="$PROJECT_DIR$/components/event/header/style.js" afterPath="$PROJECT_DIR$/components/event/header/style.js" />
-      <change beforePath="$PROJECT_DIR$/components/hangMap.js" afterPath="$PROJECT_DIR$/components/hangMap.js" />
-      <change beforePath="$PROJECT_DIR$/components/mapEventCallout/mapEventCallout.js" afterPath="$PROJECT_DIR$/components/mapEventCallout/mapEventCallout.js" />
-      <change beforePath="$PROJECT_DIR$/components/mapEventCallout/style.js" afterPath="$PROJECT_DIR$/components/mapEventCallout/style.js" />
-      <change beforePath="$PROJECT_DIR$/config/server.json" afterPath="$PROJECT_DIR$/config/server.json" />
-      <change beforePath="$PROJECT_DIR$/screens/event/chat/chat.js" afterPath="$PROJECT_DIR$/screens/event/chat/chat.js" />
-      <change beforePath="$PROJECT_DIR$/screens/event/description/description.js" afterPath="$PROJECT_DIR$/screens/event/description/description.js" />
+      <change beforePath="$PROJECT_DIR$/App.js" afterPath="$PROJECT_DIR$/App.js" />
+      <change beforePath="$PROJECT_DIR$/app/components/backgroundImage.js" afterPath="$PROJECT_DIR$/app/components/backgroundImage.js" />
+      <change beforePath="$PROJECT_DIR$/app/config/constants.js" afterPath="$PROJECT_DIR$/app/config/constants.js" />
+      <change beforePath="$PROJECT_DIR$/app/config/styles.js" afterPath="$PROJECT_DIR$/app/config/styles.js" />
+      <change beforePath="$PROJECT_DIR$/app/lib/string.js" afterPath="$PROJECT_DIR$/app/lib/string.js" />
+      <change beforePath="$PROJECT_DIR$/app/navigators/authNavigator.js" afterPath="$PROJECT_DIR$/app/navigators/authNavigator.js" />
+      <change beforePath="$PROJECT_DIR$/app/navigators/controller.js" afterPath="$PROJECT_DIR$/app/navigators/controller.js" />
+      <change beforePath="$PROJECT_DIR$/app/navigators/homeNavigator.js" afterPath="$PROJECT_DIR$/app/navigators/homeNavigator.js" />
+      <change beforePath="$PROJECT_DIR$/app/navigators/index.js" afterPath="$PROJECT_DIR$/app/navigators/index.js" />
+      <change beforePath="$PROJECT_DIR$/app/navigators/mainNavigator.js" afterPath="$PROJECT_DIR$/app/navigators/mainNavigator.js" />
+      <change beforePath="$PROJECT_DIR$/app/navigators/styles.js" afterPath="$PROJECT_DIR$/app/navigators/styles.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/calendar/calendar.js" afterPath="$PROJECT_DIR$/app/scenes/calendar/calendar.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/calendar/style.js" afterPath="$PROJECT_DIR$/app/scenes/calendar/style.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/common/components/deadEnd.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/common/loadingScreen.js" afterPath="$PROJECT_DIR$/app/scenes/common/loadingScreen.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/container.js" afterPath="$PROJECT_DIR$/app/scenes/create/container.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/components/body.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/components/body.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/components/categoryPicker.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/components/categoryPicker.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/components/datePicker.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/components/datePicker.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/components/descriptionInput.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/components/descriptionInput.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/components/footer.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/components/footer.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/components/groupLinker.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/components/groupLinker.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/components/header.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/components/header.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/components/locationPicker.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/components/locationPicker.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/components/repeatPicker.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/components/repeatPicker.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/components/schedulePicker.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/components/schedulePicker.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/components/titleInput.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/components/titleInput.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/container.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/container.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/event/presenter.js" afterPath="$PROJECT_DIR$/app/scenes/create/event/presenter.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/group/container.js" afterPath="$PROJECT_DIR$/app/scenes/create/group/container.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/group/presenter.js" afterPath="$PROJECT_DIR$/app/scenes/create/group/presenter.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/index.js" afterPath="$PROJECT_DIR$/app/scenes/create/index.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/create/main/main.js" afterPath="$PROJECT_DIR$/app/scenes/create/main/main.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/event/components/descriptionTab/descriptionTab.js" afterPath="$PROJECT_DIR$/app/scenes/event/components/descriptionTab/descriptionTab.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/event/components/eventNavigator/eventNavigator.js" afterPath="$PROJECT_DIR$/app/scenes/event/components/eventNavigator/eventNavigator.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/event/components/header/bookmark.js" afterPath="$PROJECT_DIR$/app/scenes/event/components/header/bookmark.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/event/components/header/header.js" afterPath="$PROJECT_DIR$/app/scenes/event/components/header/header.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/event/components/index.js" afterPath="$PROJECT_DIR$/app/scenes/event/components/index.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/event/container.js" afterPath="$PROJECT_DIR$/app/scenes/event/container.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/event/index.js" afterPath="$PROJECT_DIR$/app/scenes/event/index.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/event/presenter.js" afterPath="$PROJECT_DIR$/app/scenes/event/presenter.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/events/container.js" afterPath="$PROJECT_DIR$/app/scenes/home/events/container.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/events/index.js" afterPath="$PROJECT_DIR$/app/scenes/home/events/index.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/events/presenter.js" afterPath="$PROJECT_DIR$/app/scenes/home/events/presenter.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/groups/container.js" afterPath="$PROJECT_DIR$/app/scenes/home/groups/container.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/groups/index.js" afterPath="$PROJECT_DIR$/app/scenes/home/groups/index.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/groups/presenter.js" afterPath="$PROJECT_DIR$/app/scenes/home/groups/presenter.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/map/components/eventCallout/attendanceButton.js" afterPath="$PROJECT_DIR$/app/scenes/home/map/components/eventCallout/attendanceButton.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/map/components/eventCallout/eventCallout.js" afterPath="$PROJECT_DIR$/app/scenes/home/map/components/eventCallout/eventCallout.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/map/components/hangMap/hangMap.js" afterPath="$PROJECT_DIR$/app/scenes/home/map/components/hangMap/hangMap.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/map/components/index.js" afterPath="$PROJECT_DIR$/app/scenes/home/map/components/index.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/map/components/listView/listItem.js" afterPath="$PROJECT_DIR$/app/scenes/home/map/components/listView/listItem.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/map/components/listView/listView.js" afterPath="$PROJECT_DIR$/app/scenes/home/map/components/listView/listView.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/map/components/modeButton/modeButton.js" afterPath="$PROJECT_DIR$/app/scenes/home/common/components/index.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/map/container.js" afterPath="$PROJECT_DIR$/app/scenes/home/map/container.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/map/index.js" afterPath="$PROJECT_DIR$/app/scenes/home/map/index.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/map/presenter.js" afterPath="$PROJECT_DIR$/app/scenes/home/map/presenter.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/profile/container.js" afterPath="$PROJECT_DIR$/app/scenes/home/profile/container.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/profile/index.js" afterPath="$PROJECT_DIR$/app/scenes/home/profile/index.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/home/profile/presenter.js" afterPath="$PROJECT_DIR$/app/scenes/home/profile/presenter.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/signupLogin/forgottenPassword/forgottenPassword" afterPath="$PROJECT_DIR$/app/scenes/signupLogin/forgottenPassword/forgottenPassword" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/signupLogin/login/login.js" afterPath="$PROJECT_DIR$/app/scenes/signupLogin/login/login.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/signupLogin/login/style.js" afterPath="$PROJECT_DIR$/app/scenes/signupLogin/login/style.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/signupLogin/openHang/openHang.js" afterPath="$PROJECT_DIR$/app/scenes/signupLogin/openHang/openHang.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/signupLogin/openHang/style.js" afterPath="$PROJECT_DIR$/app/scenes/signupLogin/openHang/style.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/signupLogin/signUp/signUp.js" afterPath="$PROJECT_DIR$/app/scenes/signupLogin/signUp/signUp.js" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/signupLogin/signUp/style.js" afterPath="$PROJECT_DIR$/app/scenes/signupLogin/signUp/style.js" />
+      <change beforePath="$PROJECT_DIR$/app/services/api.js" afterPath="$PROJECT_DIR$/app/services/api.js" />
+      <change beforePath="$PROJECT_DIR$/app/services/localUserDetails.js" afterPath="$PROJECT_DIR$/app/services/localUserDetails.js" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/screens/controller/controller.js" afterPath="$PROJECT_DIR$/screens/controller/controller.js" />
+      <change beforePath="$PROJECT_DIR$/screens/event/components/footer/footer.js" afterPath="$PROJECT_DIR$/screens/event/components/footer/footer.js" />
+      <change beforePath="$PROJECT_DIR$/screens/event/components/footer/style.js" afterPath="$PROJECT_DIR$/screens/event/components/footer/style.js" />
+      <change beforePath="$PROJECT_DIR$/screens/event/components/header/header.js" afterPath="$PROJECT_DIR$/screens/event/components/header/header.js" />
+      <change beforePath="$PROJECT_DIR$/screens/event/components/header/style.js" afterPath="$PROJECT_DIR$/screens/event/components/header/style.js" />
       <change beforePath="$PROJECT_DIR$/screens/event/event/event.js" afterPath="$PROJECT_DIR$/screens/event/event/event.js" />
-      <change beforePath="$PROJECT_DIR$/screens/event/event/style.js" afterPath="$PROJECT_DIR$/screens/event/event/style.js" />
-      <change beforePath="$PROJECT_DIR$/screens/event/eventTabNavigator/eventTabNavigator.js" afterPath="$PROJECT_DIR$/screens/event/eventTabNavigator/eventTabNavigator.js" />
-      <change beforePath="$PROJECT_DIR$/screens/event/eventTabNavigator/style.js" afterPath="$PROJECT_DIR$/screens/event/eventTabNavigator/style.js" />
-      <change beforePath="$PROJECT_DIR$/screens/event/people/people.js" afterPath="$PROJECT_DIR$/screens/event/people/people.js" />
-      <change beforePath="$PROJECT_DIR$/screens/event/planner/planner.js" afterPath="$PROJECT_DIR$/screens/event/planner/planner.js" />
-      <change beforePath="$PROJECT_DIR$/screens/event/planner/style.js" afterPath="$PROJECT_DIR$/screens/event/planner/style.js" />
-      <change beforePath="$PROJECT_DIR$/screens/home/events/events.js" afterPath="$PROJECT_DIR$/screens/home/events/events.js" />
+      <change beforePath="$PROJECT_DIR$/screens/home/calendar/calendar.js" afterPath="$PROJECT_DIR$/screens/home/calendar/calendar.js" />
       <change beforePath="$PROJECT_DIR$/screens/home/groups/groups.js" afterPath="$PROJECT_DIR$/screens/home/groups/groups.js" />
       <change beforePath="$PROJECT_DIR$/screens/home/groups/style.js" afterPath="$PROJECT_DIR$/screens/home/groups/style.js" />
       <change beforePath="$PROJECT_DIR$/screens/home/home/home.js" afterPath="$PROJECT_DIR$/screens/home/home/home.js" />
       <change beforePath="$PROJECT_DIR$/screens/home/home/style.js" afterPath="$PROJECT_DIR$/screens/home/home/style.js" />
+      <change beforePath="$PROJECT_DIR$/screens/home/profile/profile.js" afterPath="$PROJECT_DIR$/screens/home/profile/profile.js" />
+      <change beforePath="$PROJECT_DIR$/screens/signupLogin/components/backgroundImage.js" afterPath="$PROJECT_DIR$/screens/signupLogin/components/backgroundImage.js" />
+      <change beforePath="$PROJECT_DIR$/screens/signupLogin/login/login.js" afterPath="$PROJECT_DIR$/screens/signupLogin/login/login.js" />
+      <change beforePath="$PROJECT_DIR$/screens/signupLogin/open-hang/open-hang.js" afterPath="$PROJECT_DIR$/screens/signupLogin/open-hang/open-hang.js" />
+      <change beforePath="$PROJECT_DIR$/screens/signupLogin/sign-up/sign-up.js" afterPath="$PROJECT_DIR$/screens/signupLogin/sign-up/sign-up.js" />
+      <change beforePath="$PROJECT_DIR$/screens/signupLogin/sign-up/style.js" afterPath="$PROJECT_DIR$/screens/signupLogin/sign-up/style.js" />
+      <change beforePath="$PROJECT_DIR$/services/auth.js" afterPath="$PROJECT_DIR$/services/auth.js" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,30 +112,42 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-315">
-              <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/screens/home/groups/style.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="container.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/scenes/home/events/container.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1512">
+                  <caret line="110" column="73" lean-forward="true" selection-start-line="110" selection-start-column="73" selection-end-line="110" selection-end-column="73" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                    <element signature="e#1237#1863#0" expanded="false" />
+                    <element signature="e#1902#2534#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="container.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/scenes/home/groups/container.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -78,57 +162,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/screens/home/calendar/style.js" />
-        <option value="$PROJECT_DIR$/screens/home/calendar/calendar.js" />
-        <option value="$PROJECT_DIR$/screens/signupLogin/login/login.js" />
-        <option value="$PROJECT_DIR$/node_modules/react-native/local-cli/link/__fixtures__/Info.plist" />
-        <option value="$PROJECT_DIR$/screens/home/homeNavigator/homeNavigator.js" />
-        <option value="$PROJECT_DIR$/screens/home/homeNavigator/style.js" />
-        <option value="$PROJECT_DIR$/screens/home/profile/profile.js" />
-        <option value="$PROJECT_DIR$/.expo/settings.json" />
-        <option value="$PROJECT_DIR$/components/map.js" />
-        <option value="$PROJECT_DIR$/app.json" />
-        <option value="$PROJECT_DIR$/.expo/packager-info.json" />
-        <option value="$PROJECT_DIR$/node_modules/react-native-maps/lib/android/build.gradle" />
+        <option value="$PROJECT_DIR$/app/scenes/event/components/eventNavigator/eventNavigator.js" />
+        <option value="$PROJECT_DIR$/app/scenes/event/components/header/bookmark.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/map/components/eventCallout/attendanceButton.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/components/schedulePicker.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/components/repeatPicker.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/components/enumPicker.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/presenter.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/components/locationPicker.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/components/datePicker.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/components/footer.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/container.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/map/components/listView/listItem.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/map/components/listView/listView.js" />
+        <option value="$PROJECT_DIR$/app/scenes/event/components/descriptionTab/descriptionTab.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/components/mapEventCallout.js" />
-        <option value="$PROJECT_DIR$/App.js" />
-        <option value="$PROJECT_DIR$/screens/event/style.js" />
-        <option value="$PROJECT_DIR$/screens/event/event.js" />
-        <option value="$PROJECT_DIR$/screens/event/eventTabs/eventTabNavigator.js" />
-        <option value="$PROJECT_DIR$/screens/event/photos/style.js" />
-        <option value="$PROJECT_DIR$/screens/event/photos/photos.js" />
-        <option value="$PROJECT_DIR$/config/google.json" />
-        <option value="$PROJECT_DIR$/screens/event/description/style.js" />
-        <option value="$PROJECT_DIR$/screens/event/eventTabNavigator/style.js" />
-        <option value="$PROJECT_DIR$/screens/event/event/style.js" />
-        <option value="$PROJECT_DIR$/screens/home/home/style.js" />
-        <option value="$PROJECT_DIR$/components/event/footer/style.js" />
-        <option value="$PROJECT_DIR$/components/event/footer/footer.js" />
-        <option value="$PROJECT_DIR$/components/event/header/style.js" />
-        <option value="$PROJECT_DIR$/screens/event/eventTabNavigator/eventTabNavigator.js" />
-        <option value="$PROJECT_DIR$/screens/event/people/style.js" />
-        <option value="$PROJECT_DIR$/screens/event/chat/style.js" />
-        <option value="$PROJECT_DIR$/screens/event/people/people.js" />
-        <option value="$PROJECT_DIR$/screens/event/chat/chat.js" />
-        <option value="$PROJECT_DIR$/screens/event/event/event.js" />
-        <option value="$PROJECT_DIR$/components/event/header/header.js" />
-        <option value="$PROJECT_DIR$/components/mapEventCallout/attendanceButton/attendanceButton.js" />
-        <option value="$PROJECT_DIR$/components/mapEventCallout/attendanceButton/style.js" />
-        <option value="$PROJECT_DIR$/components/mapEventCallout/style.js" />
-        <option value="$PROJECT_DIR$/components/hangMap.js" />
-        <option value="$PROJECT_DIR$/screens/event/description/description.js" />
-        <option value="$PROJECT_DIR$/components/mapEventCallout/mapEventCallout.js" />
-        <option value="$PROJECT_DIR$/screens/event/planner/style.js" />
-        <option value="$PROJECT_DIR$/screens/event/planner/planner.js" />
-        <option value="$PROJECT_DIR$/screens/home/home/home.js" />
-        <option value="$PROJECT_DIR$/screens/groups/groups/groups.js" />
-        <option value="$PROJECT_DIR$/screens/home/events/events.js" />
-        <option value="$PROJECT_DIR$/screens/home/events/style.js" />
-        <option value="$PROJECT_DIR$/config/server.json" />
-        <option value="$PROJECT_DIR$/screens/home/groups/groups.js" />
-        <option value="$PROJECT_DIR$/components/home/groups/groupGrid/groupGrid.js" />
-        <option value="$PROJECT_DIR$/screens/home/groups/style.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/components/body.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/components/titleInput.js" />
+        <option value="$PROJECT_DIR$/app/scenes/common/multiplatPicker.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/components/categoryPicker.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/components/descriptionInput.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/components/groupLinker.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/map/components/eventCallout/eventCallout.js" />
+        <option value="$PROJECT_DIR$/app/scenes/create/event/container.js" />
+        <option value="$PROJECT_DIR$/app/navigators/mainNavigator.js" />
+        <option value="$PROJECT_DIR$/app/lib/geo.js" />
+        <option value="$PROJECT_DIR$/app/scenes/event/presenter.js" />
+        <option value="$PROJECT_DIR$/app/scenes/event/components/header/header.js" />
+        <option value="$PROJECT_DIR$/app/services/api.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/profile/components/index.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/profile/container.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/profile/components/settingsItem.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/profile/presenter.js" />
+        <option value="$PROJECT_DIR$/app/config/constants.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/map/components/index.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/common/components/modeButton/modeButton.js" />
+        <option value="$PROJECT_DIR$/app/navigators/homeNavigator.js" />
+        <option value="$PROJECT_DIR$/app/navigators/controller.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/map/components/hangMap/hangMap.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/common/components/listView/listItem.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/common/components/listView/listView.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/events/components/index.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/events/presenter.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/events/components/listView/listView.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/common/components/listView/statusButton.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/events/components/listView/statusButton.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/common/components/index.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/map/container.js" />
+        <option value="$PROJECT_DIR$/app/scenes/event/container.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/map/presenter.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/events/components/listView/listItem.js" />
+        <option value="$PROJECT_DIR$/app/scenes/home/events/container.js" />
       </list>
     </option>
   </component>
@@ -175,7 +259,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,41 +269,34 @@
             <path>
               <item name="hang-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="hang-app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hang-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="hang-app" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="mapEventCallout" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hang-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="hang-app" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hang-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hang-app" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hang-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hang-app" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hang-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="hang-app" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
               <item name="events" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hang-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="hang-app" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="scenes" type="462c0819:PsiDirectoryNode" />
               <item name="home" type="462c0819:PsiDirectoryNode" />
               <item name="groups" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -228,20 +304,12 @@
               <item name="hang-app" type="b2602c69:ProjectViewProjectNode" />
               <item name="hang-app" type="462c0819:PsiDirectoryNode" />
               <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hang-app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hang-app" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="homeNavigator" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -249,17 +317,24 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="javascript.nodejs.core.library.configured.version" value="6.11.2" />
-    <property name="SearchEverywhereHistoryKey" value="build.gradle&#9;FILE&#9;file://C:/Users/jamie/WebstormProjects/hang-app/node_modules/react-native-gesture-handler/android/build.gradle&#10;lodash&#9;null&#9;null&#10;info.plist&#9;FILE&#9;file://C:/Users/jamie/WebstormProjects/hang-app/node_modules/react-native/local-cli/link/__fixtures__/Info.plist" />
+    <property name="SearchEverywhereHistoryKey" value="{&#9;null&#9;null&#10;},&#9;null&#9;null&#10;build.gradle&#9;FILE&#9;file://C:/Users/jamie/WebstormProjects/hang-app/node_modules/react-native-gesture-handler/android/build.gradle&#10;lodash&#9;null&#9;null&#10;info.plist&#9;FILE&#9;file://C:/Users/jamie/WebstormProjects/hang-app/node_modules/react-native/local-cli/link/__fixtures__/Info.plist" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jamie\WebstormProjects\hang-app\app\scenes\create\event\components" />
+      <recent name="C:\Users\jamie\WebstormProjects\hang-app\app\scenes\signupLogin\signUp" />
+      <recent name="C:\Users\jamie\WebstormProjects\hang-app\app\scenes\signupLogin\login" />
+      <recent name="C:\Users\jamie\WebstormProjects\hang-app\app\services" />
+      <recent name="C:\Users\jamie\WebstormProjects\hang-app\app\config" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\jamie\WebstormProjects\hang-app\screens\event\event" />
-      <recent name="C:\Users\jamie\WebstormProjects\hang-app\components\mapEventCallout" />
-      <recent name="C:\Users\jamie\WebstormProjects\hang-app\screens\home\home" />
-      <recent name="C:\Users\jamie\WebstormProjects\hang-app\screens\signupLogin\login" />
-      <recent name="C:\Users\jamie\WebstormProjects\hang-app\static\images\background" />
+      <recent name="C:\Users\jamie\WebstormProjects\hang-app\app" />
+      <recent name="C:\Users\jamie\WebstormProjects\hang-app\screens\signupLogin" />
+      <recent name="C:\Users\jamie\WebstormProjects\hang-app\screens\event\components" />
+      <recent name="C:\Users\jamie\WebstormProjects\hang-app\components\home\home\" />
+      <recent name="C:\Users\jamie\WebstormProjects\hang-app\components\home\home" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -345,50 +420,87 @@
       <workItem from="1513854152249" duration="6408000" />
       <workItem from="1513872591709" duration="8074000" />
       <workItem from="1514821332105" duration="599000" />
-      <workItem from="1514845839612" duration="9535000" />
+      <workItem from="1514845839612" duration="20384000" />
+      <workItem from="1514974120464" duration="16118000" />
+      <workItem from="1515081649960" duration="2000" />
+      <workItem from="1515165024145" duration="1000" />
+      <workItem from="1515504789398" duration="604000" />
+      <workItem from="1517224938101" duration="1212000" />
+      <workItem from="1518010013479" duration="3775000" />
+      <workItem from="1518020695683" duration="6055000" />
+      <workItem from="1518101536189" duration="3934000" />
+      <workItem from="1518381249368" duration="20199000" />
+      <workItem from="1518607447644" duration="18363000" />
+      <workItem from="1519130335961" duration="27956000" />
+      <workItem from="1519730900858" duration="20501000" />
+      <workItem from="1519817388694" duration="22543000" />
+      <workItem from="1519985951945" duration="24667000" />
+      <workItem from="1520335290949" duration="9612000" />
+      <workItem from="1520430200826" duration="35328000" />
+      <workItem from="1520771896236" duration="13391000" />
+      <workItem from="1520800700307" duration="9633000" />
+      <workItem from="1521118864610" duration="20826000" />
+      <workItem from="1521549001306" duration="16453000" />
+      <workItem from="1521631721658" duration="17726000" />
+      <workItem from="1521657801350" duration="4638000" />
+      <workItem from="1521719031989" duration="4925000" />
+      <workItem from="1521726199203" duration="1529000" />
+      <workItem from="1521728940033" duration="1195000" />
+      <workItem from="1521730303808" duration="13811000" />
+      <workItem from="1521801896167" duration="14017000" />
+      <workItem from="1521894212991" duration="15298000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402531000" />
+    <option name="totallyTimeSpent" value="757692000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13382508" sideWeight="0.4914842" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18177028" sideWeight="0.4914842" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.69923997" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5280423" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.50851583" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5280423" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23778501" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47014114" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23452769" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.69923997" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.50851583" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5280423" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19042663" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21917808" sideWeight="0.4914842" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17597471" sideWeight="0.4914842" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23452769" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -403,397 +515,407 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="28" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-maps/android/.gradle/2.14.1/taskArtifacts/cache.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-maps/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-maps/lib/android/gradle-maven-push.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-maps/lib/android/gradlew">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2646">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-maps/lib/android/react-native-maps-lib.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2413">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-maps/lib/android/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-maps/lib/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="38" column="59" lean-forward="false" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/home/calendar/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="18" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/photos/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/backgroundImage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/background/login.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/styleGuide.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="1" lean-forward="false" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/description/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="68" column="22" lean-forward="true" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.expo/packager-info.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/eventTabNavigator/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/event/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/event/header/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-170">
-          <caret line="54" column="18" lean-forward="true" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/chat/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/people/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/chat/chat.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="10" lean-forward="true" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/photos/photos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="23" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="30" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/people/people.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/event/header/header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/event/footer/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="20" column="45" lean-forward="true" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/mapEventCallout/attendanceButton/attendanceButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="35" column="15" lean-forward="false" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/mapEventCallout/attendanceButton/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="16" column="29" lean-forward="false" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/mapEventCallout/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="73" column="24" lean-forward="false" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/event/footer/footer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/google.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.expo/settings.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/description/description.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/planner/style.js">
+    <entry file="file://$PROJECT_DIR$/app/scenes/create/event/components/groupLinker.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
-          <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
+          <caret line="40" column="16" lean-forward="false" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/create/event/components/categoryPicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="55" column="25" lean-forward="true" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/create/event/components/titleInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="16" column="60" lean-forward="false" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/create/event/components/body.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="68" column="20" lean-forward="false" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/create/event/components/descriptionInput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="56" column="25" lean-forward="false" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/create/container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/planner/planner.js">
+    <entry file="file://$PROJECT_DIR$/app/scenes/event/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="37" column="90" lean-forward="false" selection-start-line="37" selection-start-column="90" selection-end-line="37" selection-end-column="90" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/event/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/navigators/authNavigator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lib/string.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="2" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/lib/geo.js" />
+    <entry file="file://$PROJECT_DIR$/yarn.lock" />
+    <entry file="file://$PROJECT_DIR$/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3276">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/axios/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/navigators/mainNavigator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="61" column="67" lean-forward="false" selection-start-line="61" selection-start-column="67" selection-end-line="61" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/event/components/header/header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="30" column="66" lean-forward="false" selection-start-line="30" selection-start-column="66" selection-end-line="30" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/event/presenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="40" column="47" lean-forward="false" selection-start-line="40" selection-start-column="47" selection-end-line="40" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/map/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/navigators/styles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/profile/container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="32" column="26" lean-forward="true" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
           <folding>
             <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/event/event.js">
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/profile/presenter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="25" column="46" lean-forward="true" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+        <state relative-caret-position="777">
+          <caret line="37" column="28" lean-forward="false" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/profile/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/profile/components/settingsItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="53" lean-forward="false" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/event/eventTabNavigator/eventTabNavigator.js">
+    <entry file="file://$PROJECT_DIR$/app/services/api.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        <state relative-caret-position="588">
+          <caret line="29" column="2" lean-forward="true" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/groups/groups/groups.js">
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/map/components/modeButton/modeButton.js" />
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/map/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/common/components/modeButton/modeButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="17" column="23" lean-forward="false" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/navigators/homeNavigator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="122" column="33" lean-forward="false" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/map/components/hangMap/hangMap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="42" column="24" lean-forward="false" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/navigators/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-630">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/map/components/listView/listView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="37" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/map/components/eventCallout/attendanceButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/common/components/listView/listView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
-          <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+          <caret line="36" column="17" lean-forward="true" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/home/events/style.js">
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/common/components/listView/listItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="28" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="76" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/events/components/listView/listView.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="51" column="35" lean-forward="false" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/common/components/listView/statusButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="53" column="26" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="97" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/events/components/listView/statusButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="51" column="69" lean-forward="false" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/events/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/common/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/events/presenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="81" column="35" lean-forward="false" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/map/components/eventCallout/eventCallout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/event/container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="51" column="34" lean-forward="true" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/map/container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="79" column="54" lean-forward="true" selection-start-line="79" selection-start-column="54" selection-end-line="79" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/events/components/listView/listItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="19" column="108" lean-forward="false" selection-start-line="19" selection-start-column="108" selection-end-line="19" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/create/event/container.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="160" column="10" lean-forward="true" selection-start-line="160" selection-start-column="10" selection-end-line="160" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/map/presenter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2343">
+          <caret line="158" column="32" lean-forward="false" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/groups/container.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/home/events/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/home/homeNavigator/style.js">
+    <entry file="file://$PROJECT_DIR$/app/scenes/home/events/container.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/home/homeNavigator/homeNavigator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="15" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/server.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/home/home/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2163">
-          <caret line="104" column="30" lean-forward="true" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/home/groups/groups.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="62" column="27" lean-forward="true" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
+        <state relative-caret-position="1512">
+          <caret line="110" column="73" lean-forward="true" selection-start-line="110" selection-start-column="73" selection-end-line="110" selection-end-column="73" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#1237#1863#0" expanded="false" />
+            <element signature="e#1902#2534#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/hangMap.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-987">
-          <caret line="2" column="33" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/mapEventCallout/mapEventCallout.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/home/home/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="125" column="52" lean-forward="true" selection-start-line="125" selection-start-column="52" selection-end-line="125" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="n#!!block;n#renderButtons#0;n#Home#0" expanded="false" />
-            <element signature="n#!!block;n#renderEventOnList#0;n#Home#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/home/groups/groupGrid/groupGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-315">
-          <caret line="9" column="44" lean-forward="false" selection-start-line="9" selection-start-column="44" selection-end-line="9" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/home/groups/style.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     contentView: {
         flex: flexValues.content,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'stretch'
     }
 });
 

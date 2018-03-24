@@ -1,12 +1,12 @@
 import {StyleSheet} from 'react-native';
-import * as styleGuide from '../../../config/styleGuide';
+import styleGuide from './../../../config/styles';
 
 const flexValues = {
     logo: 7,
     button: 3
 };
 
-const styles = StyleSheet.create({
+export default StyleSheet.create({
     pageView: {
         flex: 1
     },
@@ -67,5 +67,3 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat-Regular'
     }
 });
-
-export {styles};
