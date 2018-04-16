@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,StyleSheet,Image,TouchableOpacity} from 'react-native';
+import {View,Text,StyleSheet,Image,TouchableOpacity,ActivityIndicator} from 'react-native';
 import styleGuide from "./../../../../../config/styles";
 import * as _ from 'lodash';
 import AttendanceButton from './attendanceButton';
@@ -13,18 +13,22 @@ export default class extends React.Component {
             setAttendingTo,
             user
         } = this.props;
+
         const userIsAttending = _.includes(this.props.event.attending,user.id);
         const eventStartTime = event.schedule[0].startTime;
         const location = event.schedule[0].googlePlace.name + ", " + _.find(event.schedule[0].googlePlace.address_components,(component)=>{
             return _.includes(component.types,"postal_town");
         }).long_name;
         const price = "Free";
+        const photo = event.photo;
         return (
             <TouchableOpacity style={styles.card} onPress={()=>navigateTo(event._id)}>
                 <View style={styles.cardContent}>
                     <View style={styles.leftColumn}>
                         <View style={styles.imageView}>
-                            <Image style={styles.image} source={require('./../../../../../../static/images/placeholderEvent.png')}/>
+                            {photo ? <Image style={styles.image} source={{uri: photo}}/> :
+                                <ActivityIndicator/>
+                            }
                         </View>
                         <View style={styles.dateView}>
                             <Text style={styles.dateDay}>{moment(eventStartTime).format("DD")}</Text>
@@ -100,7 +104,8 @@ const styles = StyleSheet.create({
     image: {
         height: 50,
         width: 50,
-        borderRadius: 3
+        borderRadius: 3,
+        resizeMode: Image.resizeMode.contain
     },
     dateView: {
         flex: 1,

@@ -3,9 +3,9 @@ import {StackNavigator} from 'react-navigation';
 //controller screens
 import Controller from "./controller";
 //SignupLogin Screens
-import OpenHang from "./../scenes/signupLogin/openHang/openHang";
-import SignUp from "./../scenes/signupLogin/signUp/signUp";
-import Login from "./../scenes/signupLogin/login/login";
+import OpenHang from "./../scenes/signupLogin/openHang/container";
+import SignUp from "./signupNavigator";
+import Login from "./../scenes/signupLogin/login/container";
 //--------FORGOTTEN PASSWORD
 //Main
 import Main from "./mainNavigator";

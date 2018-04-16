@@ -1,7 +1,6 @@
 import React from 'react';
 import {View,Text,StyleSheet,Alert} from 'react-native';
-import Header from './components/header/header';
-import EventNavigator from './components/eventNavigator/eventNavigator';
+import {Header,EventNavigator,Footer} from './components';
 import LoadingScreen from './../common/loadingScreen';
 import * as _ from 'lodash';
 import {convertPrice} from './../../lib/string';
@@ -25,14 +24,18 @@ export default class EventPresenter extends React.Component {
             user,
             distance,
             navigateBack,
-            navigateHome
+            navigateHome,
+            bookmark,
+            bookmarked,
+            attendees,
+            setAttendingTo,
         } = this.props;
         if (!event) {
             return (
                 <LoadingScreen/>
             )
         } else {
-            const userIsAttending = _.includes(event.attending,user);
+            const userIsAttending = _.includes(event.attending,user.id);
             return (
                 <View style={styles.pageView}>
                     <View style={styles.headerView}>
@@ -43,15 +46,22 @@ export default class EventPresenter extends React.Component {
                             price={convertPrice(event.price)}
                             navigateBack={navigateBack}
                             navigateHome={navigateHome}
+                            image={event.photo}
+                            bookmarked={bookmarked}
+                            bookmark={bookmark}
                         />
                     </View>
                     <View style={styles.tabsView}>
                         <EventNavigator
                             event={event}
+                            attendees={attendees}
                         />
                     </View>
                     <View style={styles.footerView}>
-                        <Text>Footer</Text>
+                        <Footer
+                            attending={userIsAttending}
+                            setAttendingTo={setAttendingTo}
+                        />
                     </View>
                 </View>
             )

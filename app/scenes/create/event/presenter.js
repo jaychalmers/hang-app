@@ -6,16 +6,25 @@ import Footer from './components/footer';
 
 export default class extends React.Component {
     render(){
-        const {cancel,submitEvent,checkEvent} = this.props;
+        const {
+            cancel,
+            checkEvent,
+            imagePicker,
+            image,
+            awaitingServerResponse
+        } = this.props;
         return (
             <View style={styles.pageView}>
-                <Header/>
+                <Header
+                    imagePicker={imagePicker}
+                    image={image}
+                />
                 <Body
                     {...this.props}
                 />
                 <Footer
+                    awaitingServerResponse={awaitingServerResponse}
                     cancel={cancel}
-                    submitEvent={submitEvent}
                     checkEvent={checkEvent}
                 />
             </View>

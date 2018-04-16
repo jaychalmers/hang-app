@@ -1,37 +1,49 @@
 import {AsyncStorage} from 'react-native';
 import {STORE} from "../config/constants";
 
-const keys = [
+const KEYS = [
     `${STORE}user`,
     `${STORE}token`,
 ];
 
-export const saveLocalUser = (details) => {
-    //TODO: THIS CAUSES A CRASH IN EXPO ATM
-    console.log("saveLocalUser received: " + JSON.stringify(details));
+export const saveLocalUser = async (details) => {
+    try {
+        await AsyncStorage.multiSet([
+            [`${STORE}user`, details._id],
+            [`${STORE}token`, details.token]
+        ]);
+    } catch (e) {
+        throw e;
+    }
+    /*
     return AsyncStorage.multiSet([
         [`${STORE}id`,details._id],
         [`${STORE}token`,details.token]
     ],(error) => {
-        throw new Error(error);
-    });
+        if (error) throw new Error(error);
+    });*/
 };
 
-export const loadLocalUser = () => {
-    AsyncStorage.multiGet(keys,(error,res) => {
+export const loadLocalUser = async () => {
+    const user = await AsyncStorage.multiGet(KEYS,(error) => {
         //TODO: Better error behaviour
         if (error) {
             error.map((error)=>console.log("AsyncStorage error: " + error));
-            return null;
-        } else {
-            //TODO: Rethink this - I think you wanna check that the token is still valid before proceeding
-            const id = res[0][1];
-            const token = res[1][1];
-            if (id && token) {
-                return {id,token};
-            } else {
-                return null;
-            }
         }
     });
+    //TODO: Rethink this - I think you wanna check that the token is still valid before proceeding
+    const id = user[0][1];
+    const token = user[1][1];
+    if (id && token) {
+        return {
+            id: id,
+            token: token
+        };
+    } else {
+        return null;
+    }
+};
+
+export const deleteLocalUser = async () => {
+    await AsyncStorage.multiRemove(KEYS);
 };

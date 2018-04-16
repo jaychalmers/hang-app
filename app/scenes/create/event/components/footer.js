@@ -1,10 +1,14 @@
 import React from 'react';
-import {View,Text,StyleSheet,TouchableOpacity,Alert} from 'react-native';
+import {View,Text,StyleSheet,TouchableOpacity,ActivityIndicator} from 'react-native';
 import styleGuide from './../../../../config/styles';
 
 export default class extends React.Component {
     render(){
-        const {cancel, checkEvent, submitEvent} = this.props;
+        const {
+            cancel,
+            checkEvent,
+            awaitingServerResponse
+        } = this.props;
         return (
             <View style={styles.footer}>
                 <TouchableOpacity
@@ -15,29 +19,13 @@ export default class extends React.Component {
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.createView}
-                    onPress={()=>{
-                        const error = checkEvent();
-                        if (error) {
-                            this.showAlert(error);
-                        } else {
-                            if (!submitEvent()){
-                                this.showAlert("There was a problem creating the event. Please try again later.");
-                            }
-                        }
-                    }}
+                    onPress={()=>{checkEvent();}}
                 >
-                    <Text style={styles.text}>create</Text>
+                    {awaitingServerResponse ? <ActivityIndicator/> :
+                        <Text style={styles.text}>create</Text>}
                 </TouchableOpacity>
             </View>
         )
-    }
-
-    showAlert(error){
-        Alert.alert(
-            'Problem Creating Event',
-            error,
-            [{text: "OK",onPress:()=>{}}]
-        );
     }
 }
 

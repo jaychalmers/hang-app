@@ -2,6 +2,7 @@ import React from 'react';
 import {Text,View,Image,StyleSheet,TouchableOpacity} from 'react-native';
 import Button from 'react-native-button';
 import styleGuide from './../../../config/styles';
+import {notImplemented} from "../../../lib/alerts";
 
 export default class extends React.Component {
     render(){
@@ -25,7 +26,10 @@ export default class extends React.Component {
                 <View style={styles.divider}/>
                 <TouchableOpacity
                     style={styles.buttonView}
-                    onPress={() => navigate('Group')}
+                    onPress={() => {
+                        notImplemented("Group Creation");
+                        //navigate('Group');
+                    }}
                 >
                     <Image
                         source={require('./../../../../static/images/icons/create-new-group.png')}

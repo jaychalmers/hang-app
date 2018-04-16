@@ -7,7 +7,7 @@ export const GOOGLE = {
     PLACES_KEY: "AIzaSyAVEowjspEwmHm6GRtMQAzZSSca-BALG-c",
     CLIENT_ID_IOS: "103283750865-2jdvqoce9dbaqphtqp2re48gc8i89adk.apps.googleusercontent.com"
 };
-export const SERVER = "http://2.222.20.183:3000";
+export const SERVER = "http://90.214.100.56:3000";
 
 export const CATEGORIES = [
     "Arts & Craft",

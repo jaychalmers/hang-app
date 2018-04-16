@@ -1,6 +1,8 @@
 import React from 'react';
 import Presenter from './presenter';
-import {post} from './../../../services/api';
+import {get,post} from './../../../services/api';
+import {ImagePicker} from 'expo';
+import {warning} from "../../../lib/alerts";
 import axios from 'axios';
 const moment = require('moment');
 import { GOOGLE } from './../../../config/constants';
@@ -19,7 +21,9 @@ export default class extends React.Component {
             endDate: new Date(),
             category: null,
             myGroups: [],
-            repeat: null
+            repeat: null,
+            image: null,
+            awaitingServerResponse: false,
         };
         this.getGroups();
     }
@@ -27,6 +31,7 @@ export default class extends React.Component {
     render() {
         const {cancel} = this.props.screenProps;
         const props = {
+            imagePicker: this.imagePicker,
             cancel: cancel,
             updateTitle: this.updateTitle,
             updateDescription: this.updateDescription,
@@ -44,17 +49,30 @@ export default class extends React.Component {
 
     getGroups = async () => {
         const user = this.props.screenProps.user;
-        const options = {
-            id: user.id
-        };
         try {
-            const groups = await post("groups/byUser",options);
+            const groups = await get(`groups/byUser/${user.id}`);
             this.setState({
                 myGroups: groups
             });
         } catch (e) {
             console.log("Failed: " + e);
         }
+    };
+
+    imagePicker = async () => {
+        const image = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: 'Images',
+            quality: 1, //TODO: should we compress it?
+            base64: true
+        });
+        if (image.cancelled) {
+            console.log("No image picked");
+        } else {
+            this.setState({
+                image: "data:image/jpeg;base64," + image.base64
+            });
+        }
+
     };
 
     updateTitle = (title) => {
@@ -115,7 +133,7 @@ export default class extends React.Component {
             startDate,
             endDate,
             description,
-            category
+            category,
         } = this.state;
         let error = null;
         if (!title) {
@@ -124,7 +142,6 @@ export default class extends React.Component {
             error = "Location is required!";
         } else if (!locationDetails || locationDetails.status !== "OK") {
             error = "There was a problem retrieving the location details. Please try again later.";
-            error = JSON.stringify(locationDetails,null,2);
         } else if (!description) {
             error = "Description is required!";
         } else if (!category) {
@@ -132,45 +149,63 @@ export default class extends React.Component {
         } else if (moment(endDate).isSameOrBefore(moment(startDate))) {
             error = "End date and time must be after start!";
         }
-        return error;
+        if (error) {
+            warning(error);
+        } else {
+            this.submitEvent();
+        }
     };
 
     submitEvent = async () => {
         //TODO: Once we implement schedules, this needs expanding
         const {user} = this.props.screenProps;
+        const {
+            title,
+            description,
+            startDate,
+            endDate,
+            locationDetails,
+            category,
+            group,
+            image
+        } = this.state;
         //MANDATORY FIELDS
         const event = {
-            name: this.state.title,
+            name: title,
             creator: user.id,
-            description: this.state.description,
+            description: description,
             schedule: [
                 {
-                    startTime: this.state.startDate,
-                    endTime: this.state.endDate,
-                    description: this.state.description,
-                    googlePlace: this.state.locationDetails.result
+                    startTime: startDate,
+                    endTime: endDate,
+                    description: description,
+                    googlePlace: locationDetails.result
                 }
             ],
-            //there is no support for choosing price at the moment - default to 0
+            //TODO: there is no support for choosing price at the moment - default to 0
             price: 0
         };
         //OPTIONAL FIELDS
         //if the user tied this event to a group, interests should be the selected category AND the group category
         const interests = [
-            this.state.category
+            category
         ];
-        const group = this.state.group;
         if (group) {
             //If there is a group, add it to event and add its categories to interests
+            //TODO: Ensure uniqueness
             event.group = group._id;
             interests.push(...group.interests);
         }
         event.interests = interests;
+        if (image) event.photo = image;
         try {
+            this.setState({
+                awaitingServerResponse: true
+            });
             await post('/events/newEvent',event);
             this.props.screenProps.home();
         } catch (e) {
-            console.log(e);
+            warning("There was a problem creating your event. Please try again later!");
         }
     }
 }

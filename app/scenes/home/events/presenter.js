@@ -16,7 +16,7 @@ export default class EventsPresenter extends React.Component {
                     <Text style={styles.title}>Events</Text>
                 </View>
                 <View style={styles.buttonView}>
-                    <Text style={styles.icon}>#</Text>
+                    <Text style={styles.icon}></Text>
                     <ModeButton
                         title={"Attending"}
                         controller={()=>{setCreatedViewIsActiveTo(false)}}
@@ -29,7 +29,7 @@ export default class EventsPresenter extends React.Component {
                         active={createdViewIsActive}
                         fontSize={14}
                     />
-                    <Text style={styles.icon}>@</Text>
+                    <Text style={styles.icon}></Text>
                 </View>
                 <View style={styles.mainBodyView}>
                     {this.renderMainBody()}
@@ -60,6 +60,7 @@ export default class EventsPresenter extends React.Component {
 
     renderListView = (type) => {
         const {
+            navigateTo,
             createdEvents,
             awaitingCreatedEvents,
             attendedEvents,
@@ -78,6 +79,7 @@ export default class EventsPresenter extends React.Component {
                 onClick={deleteEvent}
                 type={type}
                 user={user}
+                navigateTo={navigateTo}
             />
         } else if (type === "EVENT_ATTENDED") {
             return <ListView
@@ -87,6 +89,7 @@ export default class EventsPresenter extends React.Component {
                 onClick={changeAttendingStatus}
                 type={type}
                 user={user}
+                navigateTo={navigateTo}
             />
         } else {
             throw new Error("Invalid type supplied to renderListView: " + type);

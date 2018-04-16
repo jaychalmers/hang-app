@@ -3,49 +3,22 @@ import {Text,View,Alert,ActivityIndicator,AsyncStorage} from 'react-native';
 import Button from 'react-native-button';
 import {TextField} from 'react-native-material-textfield';
 import BackgroundImage from './../../../components/backgroundImage';
-import {post} from './../../../services/api';
-import {saveLocalUser} from "./../../../services/localUserDetails";
 import {styles,formFieldStyle} from './style';
+import {notImplemented} from "../../../lib/alerts";
 
 //TODO: Social logins
-class SignUp extends React.Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-            fullName: '',
-            email: '',
-            password: '',
-            awaitingResponse: false,
-        };
-    }
-
-    pressRegisterButton = async (navigate) => {
-        const {fullName, email, password} = this.state;
-        if (!fullName || !email || !password){
-            return Alert.alert('Missing Field','Please complete all fields',[{text: 'OK', onPress: ()=>{}}]);
-        } else {
-            try {
-                //disable button by changing state
-                this.setState({awaitingServerResponse: true});
-                //make api request
-                const response = await post("/auth/register",{fullName,email,password});
-                //save response
-                await saveLocalUser(response);
-                //return to application root
-                //TODO: This should lead to the profile details instead
-                navigate("Controller");
-                //don't worry about updating state, we're leaving
-            } catch (e) {
-                Alert.alert('Error',e.message,[{text: 'OK', onPress: ()=>{}}]);
-                this.setState({awaitingServerResponse: false});
-            }
-        }
-    };
-
+export default class extends React.Component {
     render() {
-        let {email,password,fullName} = this.state;
-        const {navigate} = this.props.navigation;
+        let {
+            email,
+            password,
+            fullName,
+            awaitingServerResponse,
+            pressRegisterButton,
+            setName,
+            setEmail,
+            setPassword,
+        } = this.props;
         return (
             <View style={styles.pageView}>
                 <BackgroundImage source={require('../../../../static/images/background/register.png')}/>
@@ -58,34 +31,34 @@ class SignUp extends React.Component {
                             {...formFieldStyle}
                             label={"Full Name"}
                             value={fullName}
-                            onChangeText={(fullName) => this.setState({fullName})}
-                            disabled={this.state.awaitingServerResponse}
+                            onChangeText={(name) => setName(name)}
+                            disabled={awaitingServerResponse}
                         />
                         <TextField
                             {...formFieldStyle}
                             label={"Email"}
                             value={email}
-                            onChangeText={(email) => this.setState({email})}
+                            onChangeText={(email) => setEmail(email)}
                             keyboardType="email-address"
-                            disabled={this.state.awaitingServerResponse}
+                            disabled={awaitingServerResponse}
                         />
                         <TextField
                             {...formFieldStyle}
                             label={"Password"}
                             value={password}
-                            onChangeText={(password) => this.setState({password})}
+                            onChangeText={(password) => setPassword(password)}
                             secureTextEntry={true}
-                            disabled={this.state.awaitingServerResponse}
+                            disabled={awaitingServerResponse}
                         />
                     </View>
                     <View style={styles.signupButtonView}>
-                        {this.state.awaitingServerResponse ?
+                        {awaitingServerResponse ?
                             <ActivityIndicator color="white"/> :
                             <Button
                                 containerStyle={styles.signupButtonContainer}
                                 style={styles.signupButtonText}
                                 onPress={() => {
-                                    this.pressRegisterButton(navigate);
+                                    pressRegisterButton();
                                 }}>
                                 Sign Up
                             </Button>
@@ -96,13 +69,13 @@ class SignUp extends React.Component {
                     </View>
                     <View style={styles.socialButtonsView}>
                         <Button
-                            onPress={()=>{}}
+                            onPress={()=>{notImplemented("Social Login");}}
                             containerStyle={styles.facebookButtonContainer}
                             style={styles.socialButtonText}>
                             Sign Up using Facebook
                         </Button>
                         <Button
-                            onPress={()=>{}}
+                            onPress={()=>{notImplemented("Social Login");}}
                             containerStyle={styles.googleButtonContainer}
                             style={styles.socialButtonText}>
                             Sign Up using Google
@@ -113,5 +86,3 @@ class SignUp extends React.Component {
         )
     }
 }
-
-export default SignUp;

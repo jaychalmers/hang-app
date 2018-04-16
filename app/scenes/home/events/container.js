@@ -2,6 +2,7 @@ import React from 'react';
 import Presenter from './presenter';
 import {Alert} from 'react-native';
 import {get,post} from '../../../services/api';
+const forEach = require('lodash/forEach');
 const findIndex = require('lodash/findIndex');
 
 export default class EventsContainer extends React.Component {
@@ -26,6 +27,7 @@ export default class EventsContainer extends React.Component {
     render() {
         const {user} = this.props.screenProps;
         return <Presenter
+            navigateTo={this.navigateToSelectedEvent}
             setCreatedViewIsActiveTo={this.setCreatedViewIsActiveTo}
             changeAttendingStatus={this.changeAttendingStatus}
             refreshCreated={this.refreshCreated}
@@ -50,6 +52,7 @@ export default class EventsContainer extends React.Component {
                 createdEvents: createdEvents,
                 awaitingCreatedEvents: false
             });
+            this.getPhotosForEvents('createdEvents');
         } catch (e) {
             this.setState({
                 error: e,
@@ -71,6 +74,7 @@ export default class EventsContainer extends React.Component {
                 attendedEvents: attendedEvents,
                 awaitingAttendedEvents: false
             });
+            this.getPhotosForEvents('attendedEvents');
         } catch (e) {
             this.setState({
                 error: e,
@@ -79,8 +83,30 @@ export default class EventsContainer extends React.Component {
         }
     };
 
+    getPhotosForEvents = (category) => {
+        if (category !== "createdEvents" && category !== "attendedEvents"){
+            console.log("Invalid category supplied to getPhotosForEvents:" + category);
+            throw new Error("Invalid category supplied to getPhotosForEvents:" + category);
+        }
+        const events = this.state[category];
+        forEach(events, async (event) => {
+            const json = await get(`events/photo/${event._id}`);
+            const photo = json.photo;
+            const index = findIndex(this.state[category],(e) => {return e._id === event._id});
+            events[index].photo = photo;
+            this.setState({
+                [category]: events
+            });
+        });
+    };
+
     /*Interface methods - Button controllers for the views, etc*/
     setCreatedViewIsActiveTo = (bool) => {
+        if (bool) {
+            this.getAttendedEvents();
+        } else {
+            this.getCreatedEvents();
+        }
         this.setState({createdViewIsActive: bool});
     };
 
@@ -117,7 +143,7 @@ export default class EventsContainer extends React.Component {
 
     makeDeleteRequest = async (id) => {
         try {
-            const response = await post(`/events/delete/${id}`,{});
+            const event = await post(`/events/delete/${id}`,{});
             this.refreshCreated();
         } catch (e) {
             console.log(e);
@@ -132,5 +158,14 @@ export default class EventsContainer extends React.Component {
     refreshAttended = () => {
         this.setState({awaitingAttendedEvents: true});
         this.getAttendedEvents();
+    };
+
+    navigateToSelectedEvent = (eventID) => {
+        const {mainNavigate} = this.props.screenProps;
+        if (eventID){
+            mainNavigate('Event',{eventID: eventID});
+        } else {
+            console.log(`Invalid eventID ${eventID}`);
+        }
     };
 }

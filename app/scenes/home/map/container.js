@@ -3,6 +3,8 @@ import Presenter from './presenter';
 import {get,post} from '../../../services/api';
 import {Location} from 'expo';
 const find = require('lodash/find');
+const forEach = require('lodash/forEach');
+const findIndex = require('lodash/findIndex');
 
 export default class MapContainer extends React.Component {
     constructor(props) {
@@ -45,6 +47,7 @@ export default class MapContainer extends React.Component {
                 events: events,
                 awaitingServerResponse: false
             });
+            this.getEventImages();
         } catch (e) {
             this.setState({
                 error: e,
@@ -53,11 +56,24 @@ export default class MapContainer extends React.Component {
         }
     }
 
+    getEventImages(){
+        const {events} = this.state;
+        const updatedEvents = forEach(events, async (event)=>{
+            const json = await get(`events/photo/${event._id}`);
+            const photo = json.photo;
+            const index = findIndex(this.state.events,(e) => {return e._id === event._id});
+            events[index].photo = photo;
+            this.setState({
+                events: updatedEvents
+            });
+        });
+    }
+
     async getLocation(){
         //If either of these return falsey, you might have problems on certain Android devices.
         const providerStatus = await Location.getProviderStatusAsync();
-        console.log("locationServicesEnabled: " + providerStatus.locationServicesEnabled);
-        console.log("gpsAvailable: " + providerStatus.gpsAvailable);
+        console.log("map: locationServicesEnabled: " + providerStatus.locationServicesEnabled);
+        console.log("map: gpsAvailable: " + providerStatus.gpsAvailable);
 
         const location = await Location.getCurrentPositionAsync({enableHighAccuracy: true});
         this.setState({

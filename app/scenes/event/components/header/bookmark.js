@@ -1,27 +1,44 @@
 import React from 'react';
-import {Image,StyleSheet} from 'react-native';
+import {Image,TouchableOpacity,StyleSheet} from 'react-native';
 import styleGuide from "../../../../config/styles";
 
 export default class extends React.Component {
     render(){
         const {
-            saved
+            bookmarked,
+            bookmark
         } = this.props;
-        if (saved) {
-            return <Image
-                style={styles.bookmarkSaved}
-                source={require('./../../../../../static/images/icons/bookmark-black-shape.png')}
-            />;
+        if (bookmarked) {
+            return (
+                <TouchableOpacity
+                    onPress={() => bookmark(false)}
+                    style={styles.component}>
+                    <Image
+                        style={styles.bookmarkSaved}
+                        source={require('./../../../../../static/images/icons/bookmark-black-shape.png')}
+                    />
+                </TouchableOpacity>
+            );
         } else {
-            return <Image
-                style={styles.bookmarkUnsaved}
-                source={require('./../../../../../static/images/icons/bookmark-white.png')}
-            />;
+            return (
+                <TouchableOpacity
+                    onPress={() => bookmark(true)}
+                    style={styles.component}>
+                    <Image
+                        style={styles.bookmarkUnsaved}
+                        source={require('./../../../../../static/images/icons/bookmark-white.png')}
+                    />
+                </TouchableOpacity>
+            );
         }
     }
 }
 
 const styles = StyleSheet.create({
+    component: {
+        width: 19,
+        height: 19
+    },
     bookmarkSaved: {
         width: 19,
         height: 19,

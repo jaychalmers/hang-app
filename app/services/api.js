@@ -14,7 +14,7 @@ export const post = (route, options) => {
         .then((res)=>{
             return res.data;
         }).catch((error) => {
-            console.log(error.response.data.error);
+            console.log("post error: " + error.response.data.error);
             throw error;
     })
 };
@@ -24,7 +24,7 @@ export const get = (route) => {
         .then((res)=>{
             return res.data;
         }).catch((error) => {
-            console.log(error.response.data.error);
+            console.log("get error" + error.response.data.error);
             throw error;
         })
 };

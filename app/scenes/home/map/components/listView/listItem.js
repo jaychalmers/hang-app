@@ -3,7 +3,7 @@ import {View,Text,StyleSheet,Image,TouchableOpacity} from 'react-native';
 import styleGuide from './../../../../../config/styles';
 import {convertPrice} from "../../../../../lib/string";
 const moment = require('moment');
-const _ = require('lodash/collection');
+import * as _ from 'lodash';
 
 export default class extends React.Component {
     render(){
@@ -13,7 +13,6 @@ export default class extends React.Component {
             return _.includes(component.types,"postal_town");
         }).long_name;
         const price = convertPrice(event.price);
-
         return (
             <TouchableOpacity onPress={()=>navigateTo(event._id)}>
                 <View>
@@ -29,7 +28,7 @@ export default class extends React.Component {
                             </View>
                             <View style={styles.detailsView}>
                                 <Image style={styles.detailsIcon} source={require('../../../../../../static/images/icons/pin.png')}/>
-                                <Text style={styles.detailsText}>{location}</Text>
+                                <Text style={styles.detailsText}>{_.truncate(location,{length: 30})}</Text>
                                 <Image style={styles.detailsIcon} source={require('../../../../../../static/images/icons/clock.png')}/>
                                 <Text style={styles.detailsText}>{time.format("h:mm a")}</Text>
                             </View>

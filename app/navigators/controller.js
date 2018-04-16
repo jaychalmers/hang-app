@@ -24,13 +24,26 @@ export default class Controller extends React.Component {
             userLoaded: false,
             user: null
         };
+        const willFocusSub = this.props.navigation.addListener(
+            'willFocus',
+            payload => {
+                this.refresh();
+            }
+        );
     }
 
     componentWillMount(){
         Location.setApiKey(GOOGLE.API_KEY);
         this.loadFontsAsync();
-        this.loadUserAsync();
         this.getPermissionsAsync();
+        this.refresh();
+    }
+
+    refresh(){
+        this.setState({
+            userLoaded: false
+        });
+        this.loadUserAsync();
     }
 
     appIsReady(){
@@ -65,9 +78,9 @@ export default class Controller extends React.Component {
     async loadUserAsync(){
         const user = await loadLocalUser(); //Returns {id,token} if found, null if not
         if (user) {
-            console.log("Found local user: " + JSON.stringify(user));
+            console.log("Found logged in user: " + JSON.stringify(user));
         } else {
-            console.log("No local user found.");
+            console.log("No logged in user found.");
         }
         this.setState({
             userLoaded: true,
@@ -77,12 +90,7 @@ export default class Controller extends React.Component {
 
     componentDidUpdate(){
         const { navigate } = this.props.navigation;
-        //TODO: SWITCH BACK TO CORRECT THING FOR PRODUCTION
-        //const {user} = this.state;
-        const user = {
-            id: "5a9694ab8d81214028025ec8",
-            token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YTk2OTRhYjhkODEyMTQwMjgwMjVlYzgiLCJpYXQiOjE1MTk4MTc4OTl9.hywA-IUqbi0Ul2oH0KkYEAT5Jzo_lISrm-tH1fh0EF0"
-        };
+        const {user} = this.state;
         const signedIn = (user != null);
         if (this.appIsReady()) {
             if (signedIn) {

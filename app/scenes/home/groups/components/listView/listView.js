@@ -49,12 +49,10 @@ export default class extends React.Component {
 
     getActiveStatus = (item) => {
         const {type,user} = this.props;
-        if (type === "EVENT_CREATED"){
+        if (type === "GROUP_DISCOVER"){
+            return false;
+        } else if (type === "GROUP_JOINED"){
             return true;
-        } else if (type === "EVENT_ATTENDED"){
-            return some(item.attending,(attendee)=>{
-                return attendee === user.id;
-            });
         } else {
             throw new Error("Invalid type supplied to listView: " + type);
         }

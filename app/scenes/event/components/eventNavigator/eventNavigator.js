@@ -3,10 +3,10 @@ import { TabNavigator, TabBarTop } from "react-navigation";
 import {Image} from 'react-native';
 
 import Description from './../descriptionTab/descriptionTab';
+import People from './../peopleTab/peopleTab';
+import Photos from './../photosTab/photosTab';
 /*
 import Planner from './../plannerTab/plannerTab';
-import Photos from './../photosTab/photosTab';
-import People from './../peopleTab/peopleTab';
 import Chat from './../chatTab/chatTab';
 */
 import styleGuide from "./../../../../config/styles";
@@ -53,7 +53,7 @@ const MyNavigator = TabNavigator(
                         source={require('./../../../../../static/images/icons/set-alarm.png')}/>
                 )
             }
-        },
+        },*/
         Photos: {
             screen: Photos,
             navigationOptions: {
@@ -68,14 +68,14 @@ const MyNavigator = TabNavigator(
         People: {
             screen: People,
             navigationOptions: {
-                tabBarLabel: 'Photos',
+                tabBarLabel: 'People',
                 tabBarIcon: ({ focused, tintColor }) => (
                     <Image
                         style={{tintColor: tintColor,...tabBarIcon}}
                         source={require('./../../../../../static/images/icons/man-user.png')}/>
                 )
             }
-        },
+        },/*
         Chat: {
             screen: Chat,
             navigationOptions: {
@@ -107,9 +107,9 @@ const MyNavigator = TabNavigator(
 
 export default class extends React.Component {
     render(){
-        const {event} = this.props;
+        const {event,attendees} = this.props;
         return (
-            <MyNavigator screenProps={{event}}/>
+            <MyNavigator screenProps={{event,attendees}}/>
         )
     }
 }

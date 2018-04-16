@@ -7,6 +7,7 @@ import Button from 'react-native-button';
 import BackgroundImage from '../../../components/backgroundImage';
 import {TextField} from 'react-native-material-textfield';
 import {styles,textBoxStyles} from './style';
+import {notImplemented} from "../../../lib/alerts";
 
 class Login extends React.Component {
     constructor(props){
@@ -17,6 +18,10 @@ class Login extends React.Component {
         };
     };
 
+    static navigationOptions = {
+        gesturesEnabled: true
+    };
+
     async pressLoginButton (navigate){
         const {email,password} = this.state;
         if (!email || !password){
@@ -25,7 +30,7 @@ class Login extends React.Component {
             try {
                 this.setState({awaitingServerResponse: true});
                 const response = await post("/auth/login",{email,password});
-                await saveLocalUser(response.data);
+                await saveLocalUser(response);
                 navigate("Controller");
             } catch (e) {
                 Alert.alert('Login Error',e.message,[{text: 'OK', onPress: ()=>{}}]);
@@ -85,20 +90,20 @@ class Login extends React.Component {
                     </View>
                     <View style={styles.socialView}>
                         <Button
-                            onPress={() => {}}
+                            onPress={() => {notImplemented("Social Login");}}
                             containerStyle={styles.facebookButtonContainer}
                             style={styles.socialButtonText}>
                             Connect with Facebook
                         </Button>
                         <Button
-                            onPress={() => {}}
+                            onPress={() => {notImplemented("Social Login");}}
                             style={styles.socialButtonText}>
                             Connect with Google
                         </Button>
                     </View>
                     <View style={styles.forgottenButtonView}>
                         <Button
-                            onPress={() => navigate('ForgottenPassword')}
+                            onPress={() => {notImplemented("Forgotten Password");}}
                             containerStyle={styles.forgottenButtonContainer}
                             style={styles.forgottenButtonText}>
                             Forgotten your password?

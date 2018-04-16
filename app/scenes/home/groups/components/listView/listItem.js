@@ -12,23 +12,24 @@ export default class extends React.Component {
             type,
             navigateTo
         } = this.props;
-        const noAttending = item.attending.length;
-        const image = item.photo;
+        const noMembers = item.members.length;
+        const noEvents = item.events.length;
+        //TODO: Default images
+        const photo = item.photo;
         return (
             <TouchableOpacity style={styles.component} onPress={() => navigateTo(item._id)}>
                 <View style={styles.imageView}>
-                    {image ?
-                        <Image
-                            style={styles.image}
-                            source={{uri: image}}
-                        /> :
-                        <ActivityIndicator/>
+                    {photo ? <Image
+                        style={styles.image}
+                        source={{uri: photo}}/>
+                        : <ActivityIndicator/>
                     }
                 </View>
                 <View style={styles.contentView}>
                     <Text style={styles.itemName}>{item.name}</Text>
-                    <Text style={styles.itemDetail}>{noAttending} {(noAttending === 1) ? "person" : "people"} attending</Text>
-                    <Text style={styles.itemDetail}>{item.schedule[0].googlePlace.formatted_address}</Text>
+                    <Text style={styles.itemDetail}>{noMembers} {(noMembers === 1) ? "person has" : "people have"} joined</Text>
+                    <Text style={styles.itemDetail}>{noEvents} {(noEvents === 1) ? "event" : "events"} hosted</Text>
+                    <Text style={styles.itemDetailLight} numberOfLines={2}>{item.description}</Text>
                     <StatusButton
                         onPress={()=>{onClick(item._id,!active)}}
                         active={active}
@@ -58,7 +59,8 @@ const styles = StyleSheet.create({
     image: {
         height: 100,
         width: 100,
-        resizeMode: Image.resizeMode.contain
+        resizeMode: Image.resizeMode.contain,
+        backgroundColor: 'blue'
     },
     contentView: {
         flex: 1,
@@ -77,5 +79,10 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat-Regular',
         fontSize: 10,
         color: styleGuide.colorPalette.warmGrey
-    }
+    },
+    itemDetailLight: {
+        fontFamily: 'Montserrat-Light',
+        fontSize: 10,
+        color: styleGuide.colorPalette.warmGrey
+    },
 });

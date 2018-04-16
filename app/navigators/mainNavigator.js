@@ -60,13 +60,14 @@ const MyNavigator = StackNavigator(
 export default class MainNavigator extends React.Component {
     render(){
         const {user,location} = this.props.navigation.state.params;
+        const {navigate} = this.props.navigation;
         return (
             <View style={{flex: 1}}>
                 <StatusBar
                     barStyle={"light-content"}
                     hidden={false}
                 />
-                <MyNavigator screenProps={{user,location}}/>
+                <MyNavigator screenProps={{user,location,authNav: navigate}}/>
             </View>
         )
     }

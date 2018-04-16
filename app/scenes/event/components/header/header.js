@@ -11,14 +11,17 @@ export default class extends React.Component {
             price,
             navigateBack,
             navigateHome,
-            distance
+            distance,
+            image,
+            bookmark,
+            bookmarked
         } = this.props;
         return (
             <View style={styles.headerView}>
                 <View style={styles.bgImageContainer}>
                     <Image
                         style={styles.bgImage}
-                        source={require('./../../../../../static/images/background/eventPlaceholder.png')}
+                        source={{uri: image}}
                         resizeMode='cover'
                     />
                     <View style={styles.overlay}/>
@@ -36,10 +39,10 @@ export default class extends React.Component {
                     <Text style={styles.attendance}>{attendance} {(attendance === 1) ? "person" : "people"} going</Text>
                 </View>
                 <View style={styles.bottomView}>
-                    <Bookmark saved={false}/>
+                    <Bookmark bookmarked={bookmarked} bookmark={bookmark}/>
                     <View style={styles.bottomRightView}>
                         <Text style={styles.price}>{price}</Text>
-                        <Text style={styles.distance}>{`${distance} miles`}</Text>
+                        <Text style={styles.distance}>{distance ? `${distance} miles` : ""}</Text>
                     </View>
                 </View>
             </View>

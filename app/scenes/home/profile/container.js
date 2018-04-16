@@ -1,14 +1,11 @@
 import React from 'react';
 import Presenter from './presenter';
 import {Alert} from 'react-native';
+import {AsyncStorage} from 'expo';
+import {deleteLocalUser} from "../../../services/localUserDetails";
+import {notImplemented} from "../../../lib/alerts";
 
 export default class ProfileContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-
     render() {
         return <Presenter
             pressEditProfile={this.pressEditProfile}
@@ -19,28 +16,30 @@ export default class ProfileContainer extends React.Component {
     }
 
     pressEditProfile = () => {
-        this.notImplemented();
+        notImplemented();
     };
 
     pressLocationSettings = () => {
-        this.notImplemented();
+        notImplemented();
     };
 
     pressAbout = () => {
-        this.notImplemented();
+        notImplemented();
     };
 
     pressSignOut = () => {
-        this.notImplemented();
-    };
-
-    notImplemented = () => {
+        //TODO: And then you have to navigate back to the controller
         Alert.alert(
-           'Feature not implemented!',
-           "Sorry, that feature isn't yet implemented.",
-           [
-               {text: 'No worries dude', onPress: () => {}}
-           ]
-        );
+            'Sign Out',
+            'Are you sure you want to sign out?',
+            [
+                {text: 'Cancel', onPress: ()=>{}},
+                {text: 'Confirm', onPress: ()=>{
+                    deleteLocalUser();
+                    const {authNavigate} = this.props.screenProps;
+                    authNavigate('Controller');
+                }}
+            ]
+        )
     };
 }
