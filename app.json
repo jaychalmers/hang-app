@@ -1,6 +1,9 @@
 {
   "expo": {
     "name":"Hang",
+    "icon":"./static/images/icon.png",
+    "version":"0.0.1",
+    "slug":"expo.io/@jamiechalmers/hang",
     "orientation":"portrait",
     "sdkVersion": "23.0.0"
   },
