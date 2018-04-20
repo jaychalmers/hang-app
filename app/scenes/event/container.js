@@ -11,6 +11,11 @@ const values = require('lodash/values');
 const join = require('lodash/join');
 
 export default class EventContainer extends React.Component {
+
+    static navigationOptions = {
+        gesturesEnabled: true
+    };
+
     constructor(props) {
         super(props);
         this.eventID = this.props.navigation.state.params.eventID;
@@ -33,6 +38,7 @@ export default class EventContainer extends React.Component {
             user={user}
             navigateBack={this.navigateBack}
             navigateHome={this.navigateHome}
+            navigateToUser={this.navigateToUser}
             bookmark={this.bookmark}
             setAttendingTo={this.setAttendingTo}
             {...this.state}
@@ -124,6 +130,11 @@ export default class EventContainer extends React.Component {
             actions: [NavigationActions.navigate({routeName: 'Home'})],
         });
         this.props.navigation.dispatch(home);
+    };
+
+    navigateToUser = (id) => {
+        const {navigate} = this.props.navigation;
+        navigate('User',{userID: id});
     };
 
     setAttendingTo = async (bool) => {

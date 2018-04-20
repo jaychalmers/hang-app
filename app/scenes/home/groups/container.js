@@ -145,10 +145,9 @@ export default class GroupsContainer extends React.Component {
 
     navigateToGroup = (id) => {
         const {mainNavigate} = this.props.screenProps;
-        notImplemented("Group page view");
         if (id) {
             console.log("Navigate to group " + id);
-            //mainNavigate('Group',{groupID: id});
+            mainNavigate('Group',{groupID: id});
         } else {
             console.log(`Invalid groupID ${id}`);
         }

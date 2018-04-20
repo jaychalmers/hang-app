@@ -25,6 +25,7 @@ export default class EventPresenter extends React.Component {
             distance,
             navigateBack,
             navigateHome,
+            navigateToUser,
             bookmark,
             bookmarked,
             attendees,
@@ -55,6 +56,7 @@ export default class EventPresenter extends React.Component {
                         <EventNavigator
                             event={event}
                             attendees={attendees}
+                            navigateToUser={navigateToUser}
                         />
                     </View>
                     <View style={styles.footerView}>

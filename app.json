@@ -3,16 +3,22 @@
     "name":"Hang",
     "icon":"./static/images/icon.png",
     "version":"0.0.1",
-    "slug":"expo.io/@jamiechalmers/hang",
+    "slug":"hang",
     "orientation":"portrait",
-    "sdkVersion": "23.0.0"
+    "sdkVersion": "23.0.0",
+	"ios": {
+		"bundleIdentifier":"com.jamiechalmers.hang"
+	}
   },
   "android": {
-    "package":"com.hang.hang",
+    "package":"com.jamiechalmers.hang",
     "config": {
       "googleMaps": {
         "apiKey": "AIzaSyCXeYOuOLqHXxVZtBoQOFrs5_LYVXWjx2k"
       }
     }
-  }
+  },
+  "assetBundlePatterns": [
+    "static/images/*"
+  ]
 }

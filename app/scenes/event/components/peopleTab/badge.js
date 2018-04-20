@@ -1,16 +1,17 @@
 import React from 'react';
-import {Text,View,Image,StyleSheet,ActivityIndicator} from 'react-native';
+import {Text,View,Image,StyleSheet,ActivityIndicator,TouchableOpacity} from 'react-native';
 import styleGuide from './../../../../config/styles';
 import {capitalizeWords} from "../../../../lib/string";
 
 export default class extends React.Component {
     render(){
         const {
-            user
+            user,
+            navigateToUser
         } = this.props;
         const image = user.photo;
         return (
-            <View style={styles.component}>
+            <TouchableOpacity style={styles.component} onPress={()=>{navigateToUser(user._id)}}>
                 <View style={styles.imageView}>
                     {image ?
                         <Image
@@ -21,7 +22,7 @@ export default class extends React.Component {
                 </View>
                 <Text style={styles.name}>{capitalizeWords(user.name)}</Text>
                 <Text style={styles.title}>Title</Text>
-            </View>
+            </TouchableOpacity>
         )
     }
 }

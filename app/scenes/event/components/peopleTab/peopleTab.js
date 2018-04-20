@@ -30,9 +30,11 @@ export default class extends React.Component {
     };
 
     renderItem = ({item}) => {
+        const { navigateToUser } = this.props.screenProps;
         return <Badge
             key={item._id}
             user={item}
+            navigateToUser={navigateToUser}
         />
     };
 

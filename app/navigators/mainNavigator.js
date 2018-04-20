@@ -19,6 +19,8 @@ individual event, for instance, should be added to this Navigator.
 import Home from "./homeNavigator";
 import Calendar from "./../scenes/calendar/calendar";
 import Event from "./../scenes/event";
+import User from "./../scenes/user";
+import Group from "./../scenes/group";
 import Create from "./../scenes/create";
 
 const MyNavigator = StackNavigator(
@@ -39,6 +41,18 @@ const MyNavigator = StackNavigator(
             screen: Event,
             navigationOptions: {
                 title: 'Event'
+            }
+        },
+        User: {
+            screen: User,
+            navigationOptions: {
+                title: 'User'
+            }
+        },
+        Group: {
+            screen: Group,
+            navigationOptions: {
+                title: 'Group'
             }
         },
         Create: {

@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     image: {
         height: 100,
         width: 100,
-        resizeMode: Image.resizeMode.contain,
+        resizeMode: Image.resizeMode.cover,
         backgroundColor: 'blue'
     },
     contentView: {
