@@ -2,6 +2,7 @@ import React from 'react';
 import Presenter from './presenter';
 import {get,post} from '../../../services/api';
 import {Location} from 'expo';
+import {navigateToEvent} from "../../../lib/leafNavigation";
 const find = require('lodash/find');
 const forEach = require('lodash/forEach');
 const findIndex = require('lodash/findIndex');
@@ -93,10 +94,11 @@ export default class MapContainer extends React.Component {
     };
 
     navigateToSelectedEvent = (eventID) => {
-        const {mainNavigate} = this.props.screenProps;
+        const {mainNavigation} = this.props.screenProps;
         const {location} = this.state;
         if (eventID){
-            mainNavigate('Event',{eventID: eventID,location: location});
+            navigateToEvent(mainNavigation,eventID,location);
+            //mainNavigate('Event',{eventID: eventID,location: location});
         } else {
             console.log(`Invalid eventID ${eventID}`);
         }

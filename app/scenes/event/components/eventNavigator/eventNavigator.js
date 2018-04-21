@@ -107,9 +107,9 @@ const MyNavigator = TabNavigator(
 
 export default class extends React.Component {
     render(){
-        const {event,attendees,navigateToUser} = this.props;
+        const {event,attendees,navigation} = this.props;
         return (
-            <MyNavigator screenProps={{event,attendees,navigateToUser}}/>
+            <MyNavigator screenProps={{event,attendees,navigation}}/>
         )
     }
 }

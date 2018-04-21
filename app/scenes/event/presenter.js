@@ -23,9 +23,7 @@ export default class EventPresenter extends React.Component {
             event,
             user,
             distance,
-            navigateBack,
-            navigateHome,
-            navigateToUser,
+            navigation,
             bookmark,
             bookmarked,
             attendees,
@@ -45,8 +43,7 @@ export default class EventPresenter extends React.Component {
                             distance={distance}
                             attendance={event.attending.length}
                             price={convertPrice(event.price)}
-                            navigateBack={navigateBack}
-                            navigateHome={navigateHome}
+                            navigation={navigation}
                             image={event.photo}
                             bookmarked={bookmarked}
                             bookmark={bookmark}
@@ -56,7 +53,7 @@ export default class EventPresenter extends React.Component {
                         <EventNavigator
                             event={event}
                             attendees={attendees}
-                            navigateToUser={navigateToUser}
+                            navigation={navigation}
                         />
                     </View>
                     <View style={styles.footerView}>

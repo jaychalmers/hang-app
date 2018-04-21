@@ -1,6 +1,5 @@
 import React from 'react';
 import Presenter from './presenter';
-import { NavigationActions } from 'react-navigation';
 import {Location} from 'expo';
 import {get,post} from './../../services/api';
 import {getDistance,convertUnit} from 'geolib';
@@ -34,11 +33,10 @@ export default class EventContainer extends React.Component {
 
     render() {
         const {user} = this.props.screenProps;
+        const navigation = this.props.navigation;
         return <Presenter
             user={user}
-            navigateBack={this.navigateBack}
-            navigateHome={this.navigateHome}
-            navigateToUser={this.navigateToUser}
+            navigation={navigation}
             bookmark={this.bookmark}
             setAttendingTo={this.setAttendingTo}
             {...this.state}
@@ -119,24 +117,6 @@ export default class EventContainer extends React.Component {
     }
 
     /* Interface methods - Button controllers, etc. Remember binding. */
-    navigateBack = () => {
-        const back = NavigationActions.back();
-        this.props.navigation.dispatch(back);
-    };
-
-    navigateHome = () => {
-        const home = NavigationActions.reset({
-            index: 0,
-            actions: [NavigationActions.navigate({routeName: 'Home'})],
-        });
-        this.props.navigation.dispatch(home);
-    };
-
-    navigateToUser = (id) => {
-        const {navigate} = this.props.navigation;
-        navigate('User',{userID: id});
-    };
-
     setAttendingTo = async (bool) => {
         const {user} = this.props.screenProps;
         try {

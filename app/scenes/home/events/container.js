@@ -2,6 +2,7 @@ import React from 'react';
 import Presenter from './presenter';
 import {Alert} from 'react-native';
 import {get,post} from '../../../services/api';
+import {navigateToEvent} from "../../../lib/leafNavigation";
 const forEach = require('lodash/forEach');
 const findIndex = require('lodash/findIndex');
 
@@ -19,13 +20,15 @@ export default class EventsContainer extends React.Component {
         };
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.getCreatedEvents();
         this.getAttendedEvents();
     }
 
     render() {
-        const {user} = this.props.screenProps;
+        const {
+            user
+        } = this.props.screenProps;
         return <Presenter
             navigateTo={this.navigateToSelectedEvent}
             setCreatedViewIsActiveTo={this.setCreatedViewIsActiveTo}
@@ -40,7 +43,7 @@ export default class EventsContainer extends React.Component {
 
     /*Container methods. Anything that the view doesn't interact with*/
     getCreatedEvents = async () => {
-        const user = this.props.screenProps.user;
+        const {user} = this.props.screenProps;
         /*
         This will only be relevant once we have privacy settings implemented.
         const {user} = this.props.screenProps;
@@ -161,9 +164,9 @@ export default class EventsContainer extends React.Component {
     };
 
     navigateToSelectedEvent = (eventID) => {
-        const {mainNavigate} = this.props.screenProps;
+        const {mainNavigation} = this.props.screenProps;
         if (eventID){
-            mainNavigate('Event',{eventID: eventID});
+            navigateToEvent(mainNavigation,eventID);
         } else {
             console.log(`Invalid eventID ${eventID}`);
         }

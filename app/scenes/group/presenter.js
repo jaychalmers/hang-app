@@ -1,5 +1,6 @@
 import React from 'react';
-import {View,Text,Alert,StyleSheet} from 'react-native'
+import {View,Text,Alert,StyleSheet} from 'react-native';
+import GroupNavigator from './components/groupNavigator';
 import Header from './components/header';
 import LoadingScreen from './../common/loadingScreen';
 
@@ -17,9 +18,11 @@ export default class extends React.Component {
     render(){
         const {
             group,
-            navigation
+            members,
+            navigation,
+            events
         } = this.props;
-        if (!group){
+        if (!group || !members || !events){
             return (
                 <LoadingScreen/>
             )
@@ -35,7 +38,12 @@ export default class extends React.Component {
                         />
                     </View>
                     <View style={styles.body}>
-                        <Text>This will be the body (Tab Navigator)</Text>
+                        <GroupNavigator
+                            group={group}
+                            members={members}
+                            navigation={navigation}
+                            events={events}
+                        />
                     </View>
                 </View>
             )
@@ -60,6 +68,5 @@ const styles = StyleSheet.create({
     },
     body: {
         flex: flexValues.body,
-        backgroundColor: 'red',
     }
 });

@@ -1,8 +1,7 @@
 import React from 'react';
 import {Text,View,Image,StyleSheet,FlatList} from 'react-native';
-import Badge from './badge';
+import Badge from './../../../common/components/userBadge';
 import styleGuide from './../../../../config/styles';
-import * as _ from 'lodash';
 
 export default class extends React.Component {
 
@@ -30,11 +29,11 @@ export default class extends React.Component {
     };
 
     renderItem = ({item}) => {
-        const { navigateToUser } = this.props.screenProps;
+        const { navigation } = this.props.screenProps;
         return <Badge
             key={item._id}
             user={item}
-            navigateToUser={navigateToUser}
+            navigation={navigation}
         />
     };
 

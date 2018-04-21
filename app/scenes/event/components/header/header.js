@@ -2,6 +2,7 @@ import React from 'react';
 import {Text,View,Image,TouchableOpacity,StyleSheet} from 'react-native';
 import Bookmark from './bookmark';
 import styleGuide from "./../../../../config/styles";
+import {navigateBack,navigateHome} from "../../../../lib/leafNavigation";
 
 export default class extends React.Component {
     render(){
@@ -9,8 +10,7 @@ export default class extends React.Component {
             title,
             attendance,
             price,
-            navigateBack,
-            navigateHome,
+            navigation,
             distance,
             image,
             bookmark,
@@ -27,10 +27,10 @@ export default class extends React.Component {
                     <View style={styles.overlay}/>
                 </View>
                 <View style={styles.topView}>
-                    <TouchableOpacity onPress={navigateBack}>
+                    <TouchableOpacity onPress={() => navigateBack(navigation)}>
                         <Image style={styles.backButton} source={require('./../../../../../static/images/icons/left-arrow.png')}/>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={navigateHome}>
+                    <TouchableOpacity onPress={() => navigateHome(navigation)}>
                         <Image style={styles.homeButton} source={require('./../../../../../static/images/icons/home.png')}/>
                     </TouchableOpacity>
                 </View>

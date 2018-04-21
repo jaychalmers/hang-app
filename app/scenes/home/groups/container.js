@@ -1,7 +1,7 @@
 import React from 'react';
 import Presenter from './presenter';
 import {get,post} from '../../../services/api';
-import {notImplemented} from "../../../lib/alerts";
+import {navigateToGroup} from "../../../lib/leafNavigation";
 const filter = require('lodash/filter');
 const forEach = require('lodash/forEach');
 const findIndex = require('lodash/findIndex');
@@ -144,10 +144,10 @@ export default class GroupsContainer extends React.Component {
     };
 
     navigateToGroup = (id) => {
-        const {mainNavigate} = this.props.screenProps;
+        const {mainNavigation} = this.props.screenProps;
         if (id) {
             console.log("Navigate to group " + id);
-            mainNavigate('Group',{groupID: id});
+            navigateToGroup(mainNavigation,id);
         } else {
             console.log(`Invalid groupID ${id}`);
         }
