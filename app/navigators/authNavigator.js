@@ -1,7 +1,6 @@
+import React from 'react';
 import {StackNavigator} from 'react-navigation';
 
-//controller screens
-import Controller from "./controller";
 //SignupLogin Screens
 import OpenHang from "./../scenes/signupLogin/openHang/container";
 import SignUp from "./signupNavigator";
@@ -10,14 +9,8 @@ import Login from "./../scenes/signupLogin/login/container";
 //Main
 import Main from "./mainNavigator";
 
-export default StackNavigator(
+const MyNavigator = StackNavigator(
     {
-        Controller: {
-            screen: Controller,
-            navigationOptions: {
-                title: 'Controller'
-            }
-        },
         OpenHang: {
             screen: OpenHang,
             navigationOptions: {
@@ -44,10 +37,19 @@ export default StackNavigator(
         }
     },
     {
-        initialRoute: 'Controller',
+        initialRoute: 'OpenHang',
         headerMode: 'none',
         navigationOptions: {
             gesturesEnabled: false
         }
     }
 );
+
+export default class AuthNavigator extends React.Component {
+    render(){
+        const {reloadUser} = this.props;
+        return (
+            <MyNavigator screenProps={{reloadUser}}/>
+        )
+    }
+}

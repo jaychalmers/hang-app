@@ -6,7 +6,7 @@ export const notImplemented = (feature) => {
         'Feature not implemented!',
         `Sorry, ${description} isn't yet implemented.`,
         [
-            {text: 'No worries dude', onPress: () => {}}
+            {text: 'OK', onPress: () => {}}
         ]
     );
 };

@@ -4,6 +4,9 @@ import * as _ from 'lodash';
 import {Font,Location,Permissions} from 'expo';
 import {loadLocalUser} from "./../services/localUserDetails";
 import {GOOGLE} from './../config/constants';
+import MainNavigator from './mainNavigator';
+import AuthNavigator from './authNavigator';
+import LoadingScreen from './../scenes/common/loadingScreen';
 
 /*
 This controller screen ensures any assets (EG fonts) are loaded
@@ -24,27 +27,22 @@ export default class Controller extends React.Component {
             userLoaded: false,
             user: null
         };
-        const willFocusSub = this.props.navigation.addListener(
-            'willFocus',
-            payload => {
-                this.refresh();
-            }
-        );
     }
 
     componentWillMount(){
         Location.setApiKey(GOOGLE.API_KEY);
         this.loadFontsAsync();
         this.getPermissionsAsync();
-        this.refresh();
+        this.reloadUser();
     }
 
-    refresh(){
+    reloadUser = () => {
         this.setState({
+            user: null,
             userLoaded: false
         });
         this.loadUserAsync();
-    }
+    };
 
     appIsReady(){
         return _.every([
@@ -88,20 +86,18 @@ export default class Controller extends React.Component {
         });
     }
 
-    componentDidUpdate(){
-        const { navigate } = this.props.navigation;
+    render(){
         const {user} = this.state;
         const signedIn = (user != null);
+        console.log("Render controlelr with state: " + JSON.stringify(this.state,null,2));
         if (this.appIsReady()) {
             if (signedIn) {
-                navigate("Main", {user: user});
+                return <MainNavigator user={user} reloadUser={this.reloadUser}/>;
             } else {
-                navigate("OpenHang");
+                return <AuthNavigator reloadUser={this.reloadUser}/>;
             }
+        } else {
+            return <LoadingScreen/>;
         }
-    }
-
-    render(){
-        return null; //display nothing
     }
 }

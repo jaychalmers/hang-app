@@ -23,16 +23,15 @@ export default class extends React.Component {
     }
 
     finish = async () => {
-        const {mainNav} = this.props.screenProps;
+        const {reloadUser} = this.props.screenProps;
         const {
             auth,
             profile
         } = this.props.navigation.state.params;
         this.setState({awaitingServerResponse: true});
-        const {navigate} = this.props.navigation;
         try {
             const success = await post(`users/updateDetails/${auth._id}`,profile);
-            mainNav('Controller');
+            reloadUser();
         } catch (e) {
             Alert.alert(
                 'Signup Error',
@@ -40,7 +39,7 @@ export default class extends React.Component {
                 e +
                 '\n\nYou can update them from the Profile screen later.',
                 [
-                    {text: 'OK', onPress: () => {mainNav('Controller');}},
+                    {text: 'OK', onPress: () => {reloadUser();}},
                 ]
             );
         }

@@ -25,7 +25,7 @@ export default class extends React.Component {
 
     renderTitle = () => {
         const {members} = this.props.screenProps;
-        return <Text style={styles.title}>Members({members.length})</Text>
+        return <Text style={styles.title}>Members ({members.length})</Text>
     };
 
     renderItem = ({item}) => {

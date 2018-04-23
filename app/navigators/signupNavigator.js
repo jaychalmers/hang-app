@@ -51,9 +51,9 @@ const Nav = StackNavigator(
 
 export default class extends React.Component {
     render(){
-        const {navigate} = this.props.navigation;
+        const {reloadUser} = this.props.screenProps;
         return (
-            <Nav screenProps={{mainNav: navigate}}/>
+            <Nav screenProps={{reloadUser: reloadUser}}/>
         );
     }
 }

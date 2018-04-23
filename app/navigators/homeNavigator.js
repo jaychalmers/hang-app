@@ -22,7 +22,7 @@ const CreatePlaceHolderScreen = class extends React.Component{
 
 export default class HomeNavigator extends React.Component {
     render(){
-        const {user,authNav} = this.props.screenProps;
+        const {user,reloadUser} = this.props.screenProps;
         const navigation = this.props.navigation; //mainNavigator
         //create a tab navigator, with access to the main navigator
         const createNavigator = (props) => {
@@ -120,7 +120,7 @@ export default class HomeNavigator extends React.Component {
             return <MyNavigator screenProps={props}/>;
         };
         return (
-            createNavigator({user,mainNavigation: navigation,authNavigate: authNav})
+            createNavigator({user,mainNavigation: navigation,reloadUser: reloadUser})
         );
     }
 }

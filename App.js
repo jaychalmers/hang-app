@@ -1,8 +1,8 @@
 import React from 'react';
-import AuthNavigator from './app/navigators';
+import Controller from './app/navigators/controller';
 
 export default class App extends React.Component {
     render() {
-        return <AuthNavigator/>
+        return <Controller/>;
     }
 }

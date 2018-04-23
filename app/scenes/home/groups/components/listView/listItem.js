@@ -13,7 +13,7 @@ export default class extends React.Component {
             navigateTo
         } = this.props;
         const noMembers = item.members.length;
-        const noEvents = item.events.length;
+        const noEvents = item.events ? item.events.length : 0;
         //TODO: Default images
         const photo = item.photo;
         return (

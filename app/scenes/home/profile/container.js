@@ -35,9 +35,9 @@ export default class ProfileContainer extends React.Component {
             [
                 {text: 'Cancel', onPress: ()=>{}},
                 {text: 'Confirm', onPress: ()=>{
+                    const {reloadUser} = this.props.screenProps;
                     deleteLocalUser();
-                    const {authNavigate} = this.props.screenProps;
-                    authNavigate('Controller');
+                    reloadUser();
                 }}
             ]
         )

@@ -22,8 +22,9 @@ class Login extends React.Component {
         gesturesEnabled: true
     };
 
-    async pressLoginButton (navigate){
+    async pressLoginButton (){
         const {email,password} = this.state;
+        const {reloadUser} = this.props.screenProps;
         if (!email || !password){
             return Alert.alert('Missing Field','Please complete all fields',[{text: 'OK', onPress:()=>{}}]);
         } else {
@@ -31,7 +32,7 @@ class Login extends React.Component {
                 this.setState({awaitingServerResponse: true});
                 const response = await post("/auth/login",{email,password});
                 await saveLocalUser(response);
-                navigate("Controller");
+                reloadUser();
             } catch (e) {
                 Alert.alert('Login Error',e.message,[{text: 'OK', onPress: ()=>{}}]);
                 this.setState({awaitingServerResponse: false});
@@ -41,7 +42,6 @@ class Login extends React.Component {
 
     render() {
         let { email,password } = this.state;
-        const { navigate } = this.props.navigation;
         return (
             <View style={styles.pageView}>
                 <BackgroundImage source={require('../../../../static/images/background/login.png')}/>
@@ -79,7 +79,7 @@ class Login extends React.Component {
                                 containerStyle={styles.loginButtonContainer}
                                 style={styles.loginButtonText}
                                 onPress={() => {
-                                    this.pressLoginButton(navigate);
+                                    this.pressLoginButton();
                                 }}>
                                 Login
                             </Button>
