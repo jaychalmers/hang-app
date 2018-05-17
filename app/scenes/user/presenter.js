@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,Text,Alert} from 'react-native';
+import {View,Text,Alert,StyleSheet} from 'react-native';
 import LoadingScreen from './../common/loadingScreen';
 
 export default class extends React.Component {
@@ -23,12 +23,23 @@ export default class extends React.Component {
             )
         } else {
             return (
-                <View>
+                <View style={styles.component}>
+                    <Text>This page isn't fully implemented yet.</Text>
                     <Text>name: {user.name}</Text>
                     <Text>dob: {user.dob}</Text>
                     <Text>city: {user.city}</Text>
+                    <Text>You can use gestures or the back button on Android to navigate back.</Text>
                 </View>
             )
         }
     }
 }
+
+const styles = StyleSheet.create({
+    component: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+});

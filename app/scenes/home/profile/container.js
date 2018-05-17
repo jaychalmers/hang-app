@@ -3,20 +3,22 @@ import Presenter from './presenter';
 import {Alert} from 'react-native';
 import {AsyncStorage} from 'expo';
 import {deleteLocalUser} from "../../../services/localUserDetails";
+import {navigateToUser} from "../../../lib/leafNavigation";
 import {notImplemented} from "../../../lib/alerts";
 
 export default class ProfileContainer extends React.Component {
     render() {
         return <Presenter
-            pressEditProfile={this.pressEditProfile}
+            pressMyProfile={this.pressMyProfile}
             pressLocationSettings={this.pressLocationSettings}
             pressAbout={this.pressAbout}
             pressSignOut={this.pressSignOut}
         />
     }
 
-    pressEditProfile = () => {
-        notImplemented();
+    pressMyProfile = () => {
+        const {mainNavigation,user} = this.props.screenProps;
+        navigateToUser(mainNavigation,user.id);
     };
 
     pressLocationSettings = () => {

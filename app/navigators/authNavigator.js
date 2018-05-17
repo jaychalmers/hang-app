@@ -5,9 +5,7 @@ import {StackNavigator} from 'react-navigation';
 import OpenHang from "./../scenes/signupLogin/openHang/container";
 import SignUp from "./signupNavigator";
 import Login from "./../scenes/signupLogin/login/container";
-//--------FORGOTTEN PASSWORD
-//Main
-import Main from "./mainNavigator";
+//FORGOTTEN PASSWORD
 
 const MyNavigator = StackNavigator(
     {
@@ -27,12 +25,6 @@ const MyNavigator = StackNavigator(
             screen: SignUp,
             navigationOptions: {
                 title: 'SignUp'
-            }
-        },
-        Main: {
-            screen: Main,
-            navigationOptions: {
-                title: 'Main'
             }
         }
     },

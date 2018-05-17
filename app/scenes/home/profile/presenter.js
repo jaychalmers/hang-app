@@ -6,7 +6,7 @@ import styleGuide from './../../../config/styles';
 export default class ProfilePresenter extends React.Component {
     render(){
         const {
-            pressEditProfile,
+            pressMyProfile,
             pressLocationSettings,
             pressAbout,
             pressSignOut
@@ -18,9 +18,9 @@ export default class ProfilePresenter extends React.Component {
                 </View>
                 <View style={styles.body}>
                     <SettingsItem
-                        title={"Edit Profile"}
+                        title={"My Profile"}
                         icon={require('./../../../../static/images/icons/man-user.png')}
-                        onPress={pressEditProfile}
+                        onPress={pressMyProfile}
                     />
                     <SettingsItem
                         title={"Location Settings"}

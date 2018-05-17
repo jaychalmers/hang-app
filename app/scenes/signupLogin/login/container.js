@@ -34,6 +34,7 @@ class Login extends React.Component {
                 await saveLocalUser(response);
                 reloadUser();
             } catch (e) {
+                console.log("Login error: " + JSON.stringify(e,null,2));
                 Alert.alert('Login Error',e.message,[{text: 'OK', onPress: ()=>{}}]);
                 this.setState({awaitingServerResponse: false});
             }

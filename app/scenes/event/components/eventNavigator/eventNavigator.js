@@ -5,8 +5,8 @@ import {Image} from 'react-native';
 import Description from './../descriptionTab/descriptionTab';
 import People from './../peopleTab/peopleTab';
 import Photos from './../photosTab/photosTab';
-/*
 import Planner from './../plannerTab/plannerTab';
+/*
 import Chat from './../chatTab/chatTab';
 */
 import styleGuide from "./../../../../config/styles";
@@ -43,7 +43,7 @@ const MyNavigator = TabNavigator(
                 )
             }
         },
-        /*Planner: {
+        Planner: {
             screen: Planner,
             navigationOptions: {
                 tabBarLabel: 'Planner',
@@ -53,7 +53,7 @@ const MyNavigator = TabNavigator(
                         source={require('./../../../../../static/images/icons/set-alarm.png')}/>
                 )
             }
-        },*/
+        },
         Photos: {
             screen: Photos,
             navigationOptions: {

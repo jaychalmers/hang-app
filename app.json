@@ -19,6 +19,6 @@
     }
   },
   "assetBundlePatterns": [
-    "static/images/*"
+    "static/images/**"
   ]
 }
