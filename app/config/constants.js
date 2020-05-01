@@ -1,11 +1,11 @@
 export const STORE = "@HangStore:";
 export const FACEBOOK = {
-    APP_ID: "1570029489739920"
+    APP_ID: "disabled"
 };
 export const GOOGLE = {
-    API_KEY: "AIzaSyCXeYOuOLqHXxVZtBoQOFrs5_LYVXWjx2k",
-    PLACES_KEY: "AIzaSyAVEowjspEwmHm6GRtMQAzZSSca-BALG-c",
-    CLIENT_ID_IOS: "103283750865-2jdvqoce9dbaqphtqp2re48gc8i89adk.apps.googleusercontent.com"
+    API_KEY: "invalid-for-git",
+    PLACES_KEY: "invalid-for-git",
+    CLIENT_ID_IOS: "invalid-for-git"
 };
 export const SERVER = "http://2.221.55.38:3000";
 
